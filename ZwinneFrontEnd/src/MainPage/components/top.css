@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap');
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 56px;
+    background-color: #ffffff;
+    border-bottom: 1.5px solid #e5e7eb;
+    font-family: 'DM Sans', sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.top-nav {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.top-link {
+    text-decoration: none;
+    color: #374151;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.4rem 0.85rem;
+    border-radius: 6px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    letter-spacing: 0.01em;
+}
+
+.top-link:hover {
+    background-color: #f3f4f6;
+    color: #111827;
+}
+
+.top-link:active {
+    background-color: #e5e7eb;
+}
+
+.logout-btn {
+    float: right;
+    background: none;
+    border: 1.5px solid #d1d5db;
+    color: #6b7280;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.35rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+    letter-spacing: 0.02em;
+}
+
+.logout-btn:hover {
+    border-color: #ef4444;
+    color: #ef4444;
+    background-color: #fef2f2;
+}
+
+.logout-btn:active {
+    background-color: #fee2e2;
+}

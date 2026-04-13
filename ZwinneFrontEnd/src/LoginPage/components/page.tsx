@@ -62,6 +62,9 @@ function Page(){
         console.error(err);
         setSuccess(false);
       });
+
+      
+    navigate('/main');
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
