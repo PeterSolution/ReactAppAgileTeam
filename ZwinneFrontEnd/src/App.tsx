@@ -7,6 +7,8 @@ import LoginPage from './LoginPage/LoginPage';
 import RegisterPage from './RegisterPage/RegisterPage';
 import EditPage from './EditPage/EditPage';
 import MainPage from './MainPage/MainPage';
+import StudenciPage from './Studenci/StudenciPage';
+import AddPage from './AddPage/AddPage';
 
 function App() {
 
@@ -16,6 +18,8 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/edit" element={<EditPage />} />
             <Route path="/main" element={<MainPage />} />
+            <Route path='/students' element={<StudenciPage />} />
+            <Route path='/add' element={<AddPage />} />
         </Routes>
   )
 }

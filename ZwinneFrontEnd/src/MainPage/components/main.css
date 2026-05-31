@@ -1,0 +1,177 @@
+.main-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.main-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0;
+    color: #1a1a2e;
+}
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 320px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    width: 16px;
+    height: 16px;
+    color: #888;
+    pointer-events: none;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.5rem 2rem 0.5rem 2.25rem;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+    background: #fff;
+}
+
+.search-input:focus {
+    border-color: #4f7ef7;
+    box-shadow: 0 0 0 3px rgba(79,126,247,0.15);
+}
+
+.search-clear {
+    position: absolute;
+    right: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    font-size: 0.85rem;
+    padding: 2px 4px;
+    line-height: 1;
+}
+
+.search-clear:hover { color: #333; }
+
+.state-message {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 2rem;
+    color: #666;
+    font-size: 0.95rem;
+    justify-content: center;
+}
+
+.state-error { color: #c0392b; }
+
+.spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ddd;
+    border-top-color: #4f7ef7;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.table-wrapper {
+    overflow-x: auto;
+    border: 1px solid #e8ecf0;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.projects-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    min-width: 800px;
+}
+
+.projects-table thead tr {
+    background: #f5f7fa;
+    border-bottom: 1px solid #e8ecf0;
+}
+
+.projects-table th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #555;
+    white-space: nowrap;
+}
+
+.projects-table tbody tr {
+    border-bottom: 1px solid #f0f2f5;
+    transition: background 0.15s;
+}
+
+.projects-table tbody tr:last-child { border-bottom: none; }
+.projects-table tbody tr:hover { background: #f8f9ff; }
+
+.projects-table td {
+    padding: 0.75rem 1rem;
+    color: #333;
+    vertical-align: middle;
+}
+
+.td-id {
+    font-weight: 600;
+    color: #888;
+    width: 48px;
+}
+
+.td-name {
+    font-weight: 500;
+    color: #1a1a2e;
+}
+
+.td-desc {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #666;
+}
+
+.td-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 5px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: opacity 0.15s, transform 0.1s;
+    white-space: nowrap;
+}
+
+.btn:hover { opacity: 0.85; }
+.btn:active { transform: scale(0.97); }
+
+.btn-edit     { background: #4f7ef7; color: #fff; }
+.btn-tasks    { background: #10b981; color: #fff; }
+.btn-students { background: #f59e0b; color: #fff; }
+.btn-delete   { background: #ef4444; color: #fff; }

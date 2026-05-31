@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Main from './components/main';
-import MidPanel from './components/mid';
+import Mid from './components/mid';
 import Top from './components/top';
 
 function MainPanel() {
@@ -8,8 +8,8 @@ function MainPanel() {
     return (
         <>
             <Top />
+            <Mid />
             <Main />
-            <MidPanel />
         </>
     )
 }

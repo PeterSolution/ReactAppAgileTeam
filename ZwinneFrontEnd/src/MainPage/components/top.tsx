@@ -13,12 +13,14 @@ function Top() {
     return (
         <header className="top-bar">
             <nav className="top-nav">
-                <a href="/projects" className="top-link">Projekty</a>
+                <a href="/main" className="top-link">Projekty</a>
                 <a href="/students" className="top-link">Studenci</a>
             </nav>
-            <button className="logout-btn" onClick={handleLogout}>
-                Wyloguj
-            </button>
+            <div className='btnRightTopMain'>
+                <button className="logout-btn" onClick={handleLogout}>
+                    Wyloguj
+                </button>
+            </div>
             <hr/>
         </header>
     );

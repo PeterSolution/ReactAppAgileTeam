@@ -38,6 +38,9 @@
 .top-link:active {
     background-color: #e5e7eb;
 }
+.btnRightTopMain {
+    float: right;
+}
 
 .logout-btn {
     float: right;
