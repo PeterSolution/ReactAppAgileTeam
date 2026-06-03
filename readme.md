@@ -1,28 +1,162 @@
-Celem projektu jest stworzenie aplikacji webowej do zarządzania projektami dla studentów. Wykorzystywany w projekcie będzie framework Spring Boot i narzędzie Gradle. Oprogramowanie zostanie rozdzielone na back-end i front-end, będzie korzystać z REST API i RestClienta. Część Front-endu została wykonana w React + TypeScript + Vite. Ponadto oprogramowanie będzie testowane za pomocą bibliotek JUnit, MockMVC i Mockito. Aplikacja zostanie też zabezpieczona przy użyciu modułu Spring Security, początkowo za pomocą podstawowego uwierzytelniania, a później tokenów dostępowych i odświeżania. Utworzona aplikacja powinna umożliwiać wyświetlanie listy wszystkich projektów przechowywanych w bazie danych, a także ich tworzenie, modyfikowanie i usuwanie. Trzeba również zapewnić możliwość przeglądania zadań wybranego projektu, a także przypisywania do niego nowych pozycji. Poza tym należy uwzględnić przypisywanie użytkowników aplikacji do poszczególnych projektów, opcjonalnie również do zadań. Utworzony graficzny interfejs użytkownika powinien umożliwiać stronicowanie danych oraz posiadać mechanizm wyszukiwania i filtrowania.
+## 🔧 Ogólne przygotowanie – aktualizacja systemu
 
-Realizacja powinna uwzględniać m.in.:
-• zabezpieczenie danych i aplikacji przed nieupoważnionym dostępem,
-• odrębne uprawnienia dla prowadzącego i studentów,
-• testy jednostkowe, integracyjne i akceptacyjne (koniecznie serwisów i kontrolerów, zalecane JUnit5, Mockito i MockMVC),
-• pełną funkcjonalność systemu pozwalającą dodawać, modyfikować i usuwać dane projektów, zadań i studentów. Powinna istnieć możliwość stronicowania i wyszukiwania, opcjonalnie sortowania, danych projektów i studentów.
-• możliwość przesyłania na serwer i pobierania plików przypisywanych do danego projektu lub zadania,
-• ogólnodostępny chat korzystający z dwukierunkowego kanału websocketowego (można przy tym użyć frameworku Atmosphere lub skorzystać ze Springa tworząc kanał websocketowy z wykorzystaniem protokołu STOMP). Dla chętnych funkcjonalność komunikacji w obrębie grupy projektowej i możliwość przesyłania plików do wybranych użytkowników,
-• aplikacja powinna używać mechanizmu rejestracji np. biblioteki Logback i rozwiązania SLF4J w roli abstrakcyjnej fasady.
-Kolejne zadania i technologie do rozważenia:
-• budowa obrazu Dockera i uruchamianie aplikacji w kontenerze,
-• rozbudowa projektu o środowisko monitorowania i wizualizacji pracy aplikacji webowej opartej na frameworku Spring Boot (z wykorzystaniem narzędzi Prometheus oraz Grafana),
-• wykorzystanie OAuth 2.0 - standardowego protokołu autoryzacji dostępu (logowanie za pomocą np. Google’a czy Facebooka),
-• aplikacja reaktywna z użyciem Spring WebFlux (R2DBC - Reactive Relational Database Connectivity, Reactive Transactions, Backpressure, RSocket) lub korzystająca z wątków wirtualnych (wymagana Java 21 lub nowsza),
-• implementacja tablicy scrumowej,
-• implementacja tablicy kanbanowej z ustawianymi limitami prac w każdej kolumnie, a także skumulowanego wykresu przepływu z nanoszonymi liniami trendu dla tempa przybywania i liczby elementów w systemie,
-• aplikacja springowa z wykorzystaniem programowania funkcyjnego zastępującego większość adnotacji,
-• GraphQL z użyciem Spring Boota.
-Trzeba będzie definiować m.in.:
-    - tzw. Input czyli prostą klasę (POJO) dla przyjmowania danych z edycji w GraphQL,
-    - QueryResolver, klasę obsługująca zapytania w GraphQL,
-    - MutationResolver, klasę obsługująca modyfikacje w GraphQL,
-    - plik schema dla GraphQL, opisujący strukturę bazy danych i dostępne metody,
-• Elasticsearch w Spring Boot,
-• SOAP (ang. Simple Object Access Protocol) - usługa opisywana przez udostępniany plik WSDL (nazwa operacji, jej dane wejściowe, ich typ itp.) zabezpieczona za pomocą SAML-a (ang. Security Assertion Markup Language),
-• mechanizm bazodanowych triggerów do automatycznego archiwizowania zmian projektu i jego zadań,
-• utworzenie Springowej aplikacji natywnej przy użyciu kompilatora GraalVM.
+Zalecam rozpocząć od aktualizacji listy pakietów i systemu:
+
+```bash
+sudo apt update
+sudo apt upgrade -y
+```
+
+---
+
+## 🐳 Sposób A: Uruchomienie przez Docker Compose (zalecany)
+
+### 1. Zainstaluj Dockera
+
+```bash
+# Zainstaluj pakiety umożliwiające dodanie repozytorium przez HTTPS
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+
+# Dodaj oficjalny klucz GPG Dockera
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+# Dodaj repozytorium stabilne
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Zainstaluj silnik Dockera
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io
+```
+
+### 2. Dodaj swojego użytkownika do grupy `docker` (aby uniknąć `sudo` przy każdym poleceniu)
+
+```bash
+sudo usermod -aG docker $USER
+newgrp docker   # lub wyloguj się i zaloguj ponownie
+```
+
+### 3. Zainstaluj Docker Compose (wtyczka)
+
+Nowoczesne wersje Dockera zawierają komendę `docker compose` (z myślnikiem) jako wtyczkę. Sprawdź:
+
+```bash
+docker compose version
+```
+
+Jeśli nie jest dostępna, zainstaluj ją:
+
+```bash
+sudo apt install -y docker-compose-plugin
+```
+
+Lub klasyczny `docker-compose` (niezalecany, ale działa):
+
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+### 4. Uruchom aplikację
+
+W głównym katalogu projektu (z plikiem `docker-compose.yml`):
+
+```bash
+docker compose up --build
+```
+
+Aplikacja będzie dostępna pod:
+- Frontend: http://localhost:3000
+- Backend: http://localhost:8080
+
+Aby zatrzymać: `Ctrl + C`, a następnie `docker compose down`.
+
+---
+
+## 🖥️ Sposób B: Uruchomienie lokalne (bez Dockera)
+
+### 1. Zainstaluj PostgreSQL
+
+```bash
+sudo apt install -y postgresql postgresql-contrib
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+```
+
+#### Skonfiguruj bazę danych:
+
+```bash
+sudo -u postgres psql
+```
+
+W konsoli `psql` wykonaj:
+
+```sql
+CREATE DATABASE zwinne_db;
+CREATE USER postgres WITH PASSWORD 'postgres';
+GRANT ALL PRIVILEGES ON DATABASE zwinne_db TO postgres;
+\q
+```
+
+Upewnij się, że PostgreSQL nasłuchuje na porcie 5432 (domyślnie). Jeśli potrzebujesz połączenia z `localhost`, standardowa konfiguracja działa od razu.
+
+### 2. Zainstaluj JDK (do uruchomienia backendu w Gradle)
+
+Projekt używa Gradle Wrapper (`./gradlew`), więc potrzebujesz tylko JDK 17 lub nowszej:
+
+```bash
+sudo apt install -y openjdk-17-jdk
+java -version   # sprawdzenie
+```
+
+### 3. Uruchom backend
+
+Przejdź do katalogu `ZwinneBackEnd` i uruchom:
+
+```bash
+cd ZwinneBackEnd
+./gradlew bootRun
+```
+
+> Jeśli plik `gradlew` nie ma praw wykonywania: `chmod +x gradlew`
+
+Backend wystartuje domyślnie na porcie 8080.
+
+### 4. Zainstaluj Node.js i npm (dla frontendu)
+
+```bash
+# Dodaj oficjalne repozytorium NodeSource (zalecane dla nowszych wersji)
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs
+
+# Sprawdź wersje
+node --version
+npm --version
+```
+
+### 5. Uruchom frontend
+
+Przejdź do katalogu `ReactAppAgileTeam/ZwinneFrontEnd`:
+
+```bash
+cd ../ReactAppAgileTeam/ZwinneFrontEnd   # lub pełna ścieżka
+npm install   # instaluje zależności (tylko za pierwszym razem)
+npm run dev
+```
+
+Frontend uruchomi się na porcie deweloperskim Vite – zazwyczaj http://localhost:5173.
+
+---
+
+## ✅ Podsumowanie
+
+| Metoda | Zalety | Wymagania |
+|--------|--------|------------|
+| **Docker** | Izolacja, łatwość, brak konfliktów wersji | Docker + Docker Compose |
+| **Lokalna** | Bezpośredni dostęp do kodu, szybszy restart w trakcie rozwoju | PostgreSQL, JDK, Node.js |
+
+Jeśli napotkasz problemy (np. port zajęty, brak połączenia z bazą), sprawdź:
+- Czy PostgreSQL działa: `sudo systemctl status postgresql`
+- Czy backend widzi bazę: sprawdź logi Gradle
+- Czy frontend ma poprawny adres backendu (zwykle w pliku `.env` lub `vite.config.js`)
+
+Jeśli potrzebujesz pomocy przy konfiguracji szczegółów (np. zmiany hasła bazy danych, dostosowania portów), daj znać – pomogę doprecyzować.
