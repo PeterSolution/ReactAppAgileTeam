@@ -2,13 +2,12 @@ import { useState } from "react";
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import './page.css';
+import { ENDPOINTS } from "../../backendConnection";
 
 interface LoginPageProps {
   onLogin?: (email: string, password: string) => void;
   onRegister?: () => void;
 }
-
-
 
 function Page(){
     const [email, setEmail] = useState('');
@@ -30,41 +29,52 @@ function Page(){
   };
 
   const handleSubmit = async () => {
-    // const validationErrors = validate();
-    // if (Object.keys(validationErrors).length > 0) {
-    //   setErrors(validationErrors);
-    //   return;
-    // }
-    // setErrors({});
-    // setLoading(true);
-    // await new Promise(r => setTimeout(r, 1200));
-    // setLoading(false);
-    // setSuccess(true);
-    // // onLogin?.(email, password);
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+    setErrors({});
+    setLoading(true);
 
-    fetch(`http://localhost:8080/api/login?email=${email}&password=${password}`, {
-      method: 'GET'
-    })
-      .then(res => {
-        setCode(res.status); // zapisujesz kod HTTP
-
-        if (!res.ok) {
-          throw new Error(`Błąd: ${res.status}`);
-        }
-
-        return res.json();
-      })
-      .then(data => {
-        console.log(data);
-        setSuccess(true); // np. jeśli 200
-      })
-      .catch(err => {
-        console.error(err);
-        setSuccess(false);
+    try {
+      const res = await fetch(ENDPOINTS.auth.login(), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
       });
 
-      
-    navigate('/main');
+      setCode(res.status);
+
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.message || 'Błędny e-mail lub hasło.');
+      }
+
+      const data = await res.json();
+      localStorage.setItem("accessToken", data.accessToken);
+      localStorage.setItem("refreshToken", data.refreshToken);
+      localStorage.setItem("currentUser", JSON.stringify({
+        id: data.id,
+        email: data.email,
+        rola: data.rola,
+        firstName: data.firstName,
+        lastName: data.lastName
+      }));
+
+      setSuccess(true);
+      setTimeout(() => {
+        navigate('/main');
+      }, 500);
+    } catch (err: any) {
+      console.error(err);
+      setErrors({ email: err.message || "Błąd połączenia z serwerem." });
+      setSuccess(false);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {

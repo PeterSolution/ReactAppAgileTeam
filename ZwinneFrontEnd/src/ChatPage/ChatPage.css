@@ -1,0 +1,160 @@
+.gc-container {
+    padding: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    color: #f3f4f6;
+    font-family: 'Inter', system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.gc-header {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gc-title-section h1 {
+    font-size: 24px;
+    margin: 0 0 4px 0;
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gc-subtitle {
+    color: #9ca3af;
+    font-size: 14px;
+    margin: 0;
+}
+
+.gc-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 550px;
+}
+
+.gc-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gc-message {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 75%;
+}
+
+.gc-message-self {
+    align-self: flex-end;
+}
+
+.gc-message-other {
+    align-self: flex-start;
+}
+
+.gc-msg-header {
+    font-size: 11px;
+    color: #9ca3af;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.gc-msg-sender {
+    font-weight: 600;
+}
+
+.gc-msg-role {
+    font-size: 9px;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 1px 4px;
+    border-radius: 4px;
+}
+
+.gc-msg-role-prow {
+    background: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+}
+
+.gc-msg-role-stud {
+    background: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+}
+
+.gc-msg-bubble {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #e5e7eb;
+    word-break: break-word;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gc-message-self .gc-msg-bubble {
+    background: rgba(96, 165, 250, 0.2);
+    border-color: rgba(96, 165, 250, 0.3);
+}
+
+.gc-input-area {
+    display: flex;
+    gap: 10px;
+}
+
+.gc-input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.gc-input:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
+}
+
+.gc-send-btn {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    color: #fff;
+    border: none;
+    padding: 0 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.gc-send-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.gc-send-btn:active {
+    transform: translateY(0);
+}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ENDPOINTS } from "../backendConnection";
+import { ENDPOINTS, fetchWithAuth } from "../backendConnection";
 import "./editpage.css";
 
 interface Project {
@@ -25,6 +25,7 @@ function EditPage() {
     const [project, setProject] = useState<Project | null>(null);
     const [nazwa, setNazwa] = useState("");
     const [opis, setOpis] = useState("");
+    const [dataOddania, setDataOddania] = useState("");
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -36,12 +37,13 @@ function EditPage() {
             setLoading(true);
             setError(null);
             try {
-                const res = await fetch(ENDPOINTS.projects.getById(Number(id)));
+                const res = await fetchWithAuth(ENDPOINTS.projects.getById(Number(id)));
                 if (!res.ok) throw new Error(`Błąd serwera: ${res.status}`);
                 const data: Project = await res.json();
                 setProject(data);
                 setNazwa(data.nazwa);
-                setOpis(data.opis);
+                setOpis(data.opis || "");
+                setDataOddania(data.dataOddania || "");
             } catch (err: any) {
                 setError(err.message || "Nie udało się pobrać projektu.");
             } finally {
@@ -56,16 +58,22 @@ function EditPage() {
             setError("Nazwa nie może być pusta.");
             return;
         }
+        if (!dataOddania) {
+            setError("Data oddania jest wymagana.");
+            return;
+        }
         setSaving(true);
         setError(null);
         setSuccess(false);
         try {
-            const res = await fetch(ENDPOINTS.projects.update(Number(id)), {
+            const res = await fetchWithAuth(ENDPOINTS.projects.update(Number(id)), {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ nazwa, opis }),
+                body: JSON.stringify({ nazwa, opis, dataOddania }),
             });
             if (!res.ok) throw new Error(`Błąd serwera: ${res.status}`);
+            const updatedData: Project = await res.json();
+            setProject(updatedData);
             setSuccess(true);
             setTimeout(() => setSuccess(false), 3000);
         } catch (err: any) {
@@ -76,7 +84,7 @@ function EditPage() {
     };
 
     const hasChanges =
-        project !== null && (nazwa !== project.nazwa || opis !== project.opis);
+        project !== null && (nazwa !== project.nazwa || opis !== project.opis || dataOddania !== project.dataOddania);
 
     if (loading) {
         return (
@@ -123,10 +131,6 @@ function EditPage() {
                         <span className="ep-meta-label">Zmodyfikowany</span>
                         <span className="ep-meta-value">{formatDate(project?.zmodyfikowany ?? "")}</span>
                     </div>
-                    <div className="ep-meta-item">
-                        <span className="ep-meta-label">Data oddania</span>
-                        <span className="ep-meta-value">{formatDate(project?.dataOddania ?? "")}</span>
-                    </div>
                 </div>
 
                 <div className="ep-divider" />
@@ -146,6 +150,19 @@ function EditPage() {
                             placeholder="Wpisz nazwę projektu"
                         />
                         <span className="ep-char-count">{nazwa.length}/200</span>
+                    </div>
+
+                    <div className="ep-field">
+                        <label className="ep-label" htmlFor="dataOddania">
+                            Data oddania <span className="ep-required">*</span>
+                        </label>
+                        <input
+                            id="dataOddania"
+                            type="date"
+                            className="ep-input"
+                            value={dataOddania}
+                            onChange={e => setDataOddania(e.target.value)}
+                        />
                     </div>
 
                     <div className="ep-field">
@@ -171,6 +188,7 @@ function EditPage() {
                             onClick={() => {
                                 setNazwa(project!.nazwa);
                                 setOpis(project!.opis);
+                                setDataOddania(project!.dataOddania);
                                 setError(null);
                             }}
                             disabled={!hasChanges || saving}

@@ -8,6 +8,11 @@ function Mid() {
     function handleAddProject() {
         navigate('/add');
     }
+
+    const currentUserStr = localStorage.getItem("currentUser");
+    const currentUser = currentUserStr ? JSON.parse(currentUserStr) : null;
+    const isLecturer = currentUser?.rola === "ROLE_PROWADZACY";
+
     return (
         <>
             <center>
@@ -16,9 +21,13 @@ function Mid() {
                 <h1>Lista Projektow</h1>
                 <br/>
                 <br/>
-                <h2><a onClick={handleAddProject}>Dodaj projekt</a></h2>
-                <br/>
-                <br/>
+                {isLecturer && (
+                    <>
+                        <h2><a onClick={handleAddProject} style={{ cursor: 'pointer', textDecoration: 'underline' }}>Dodaj projekt</a></h2>
+                        <br/>
+                        <br/>
+                    </>
+                )}
             </center>
         </>
     )

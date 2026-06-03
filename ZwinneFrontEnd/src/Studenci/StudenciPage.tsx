@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { ENDPOINTS } from "../backendConnection";
+import { ENDPOINTS, fetchWithAuth } from "../backendConnection";
 import "./StudenciPage.css";
 
 interface Student {
@@ -11,6 +11,7 @@ interface Student {
     numerIndexu: string;
     formaStudiow: "stacjonarne" | "niestacjonarne";
     email: string;
+    rola?: string;
 }
 
 function getInitials(imie: string, nazwisko: string): string {
@@ -33,6 +34,8 @@ function StudenciPage() {
     const navigate = useNavigate();
 
     const [students, setStudents] = useState<Student[]>([]);
+    const [allSystemStudents, setAllSystemStudents] = useState<Student[]>([]);
+    const [selectedStudentId, setSelectedStudentId] = useState<number | "">("");
     const [search, setSearch] = useState("");
     const [filterForma, setFilterForma] = useState<"" | "stacjonarne" | "niestacjonarne">("");
     const [loading, setLoading] = useState(true);
@@ -40,24 +43,90 @@ function StudenciPage() {
     const [sortKey, setSortKey] = useState<SortKey>("nazwisko");
     const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
 
-    useEffect(() => {
-        if (!projectId) return;
-        const fetchStudents = async () => {
-            setLoading(true);
-            setError(null);
-            try {
-                const res = await fetch(ENDPOINTS.students.getByProject(Number(projectId)));
-                if (!res.ok) throw new Error(`Błąd serwera: ${res.status}`);
-                const data: Student[] = await res.json();
-                setStudents(data);
-            } catch (err: any) {
-                setError(err.message || "Nie udało się pobrać studentów.");
-            } finally {
-                setLoading(false);
+    const currentUserStr = localStorage.getItem("currentUser");
+    const currentUser = currentUserStr ? JSON.parse(currentUserStr) : null;
+    const isLecturer = currentUser?.rola === "ROLE_PROWADZACY";
+
+    const fetchStudents = async () => {
+        setLoading(true);
+        setError(null);
+        try {
+            const url = projectId 
+                ? ENDPOINTS.students.getByProject(Number(projectId))
+                : ENDPOINTS.students.getAll();
+                
+            const res = await fetchWithAuth(url);
+            if (!res.ok) throw new Error(`Błąd serwera: ${res.status}`);
+            
+            const data = await res.json();
+            // Mapowanie nrIndeksu z DTO backendu do numerIndexu używanego we frontendzie
+            const mapped: Student[] = data.map((s: any) => ({
+                ...s,
+                numerIndexu: s.nrIndeksu || s.numerIndexu || "—"
+            }));
+            
+            setStudents(mapped);
+
+            // Jeśli jesteśmy w projekcie i zalogowany jest prowadzący, pobierzmy wszystkich studentów z systemu do wyboru
+            if (projectId && isLecturer) {
+                const allRes = await fetchWithAuth(ENDPOINTS.students.getAll());
+                if (allRes.ok) {
+                    const allData = await allRes.json();
+                    const allMapped: Student[] = allData.map((s: any) => ({
+                        ...s,
+                        numerIndexu: s.nrIndeksu || s.numerIndexu || "—"
+                    }));
+                    
+                    // Odfiltruj studentów już będących w projekcie
+                    const notInProject = allMapped.filter(
+                        sysStudent => !mapped.some(projStudent => projStudent.id === sysStudent.id)
+                    );
+                    setAllSystemStudents(notInProject);
+                }
             }
-        };
+        } catch (err: any) {
+            setError(err.message || "Nie udało się pobrać studentów.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
         fetchStudents();
     }, [projectId]);
+
+    const handleAddStudent = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!projectId || !selectedStudentId) return;
+
+        try {
+            const res = await fetchWithAuth(ENDPOINTS.students.addToProject(Number(projectId), Number(selectedStudentId)), {
+                method: "POST"
+            });
+            if (!res.ok) throw new Error("Nie udało się dodać studenta do projektu.");
+            
+            setSelectedStudentId("");
+            fetchStudents(); // Odśwież listę studentów
+        } catch (err: any) {
+            alert(err.message);
+        }
+    };
+
+    const handleRemoveStudent = async (studentId: number) => {
+        if (!projectId) return;
+        if (!window.confirm("Czy na pewno chcesz usunąć tego studenta z projektu?")) return;
+
+        try {
+            const res = await fetchWithAuth(ENDPOINTS.students.removeFromProject(Number(projectId), studentId), {
+                method: "DELETE"
+            });
+            if (!res.ok) throw new Error("Nie udało się usunąć studenta z projektu.");
+            
+            fetchStudents(); // Odśwież listę studentów
+        } catch (err: any) {
+            alert(err.message);
+        }
+    };
 
     const handleSort = (key: SortKey) => {
         if (sortKey === key) {
@@ -72,15 +141,17 @@ function StudenciPage() {
         .filter(s => {
             const q = search.toLowerCase();
             const matchSearch =
-                s.imie.toLowerCase().includes(q) ||
-                s.nazwisko.toLowerCase().includes(q) ||
-                s.email.toLowerCase().includes(q) ||
-                s.numerIndexu.toLowerCase().includes(q);
+                (s.imie || "").toLowerCase().includes(q) ||
+                (s.nazwisko || "").toLowerCase().includes(q) ||
+                (s.email || "").toLowerCase().includes(q) ||
+                (s.numerIndexu || "").toLowerCase().includes(q);
             const matchForma = filterForma ? s.formaStudiow === filterForma : true;
             return matchSearch && matchForma;
         })
         .sort((a, b) => {
-            const cmp = String(a[sortKey]).localeCompare(String(b[sortKey]), "pl", { numeric: true });
+            const valA = a[sortKey] ? String(a[sortKey]) : "";
+            const valB = b[sortKey] ? String(b[sortKey]) : "";
+            const cmp = valA.localeCompare(valB, "pl", { numeric: true });
             return sortDir === "asc" ? cmp : -cmp;
         });
 
@@ -101,7 +172,9 @@ function StudenciPage() {
                         Wróć
                     </button>
                     <div>
-                        <h1 className="st-title">Studenci</h1>
+                        <h1 className="st-title">
+                            {projectId ? "Studenci w projekcie" : "Lista wszystkich studentów"}
+                        </h1>
                         {!loading && !error && (
                             <span className="st-count">{filtered.length} z {students.length}</span>
                         )}
@@ -137,6 +210,31 @@ function StudenciPage() {
                     </div>
                 </div>
             </div>
+
+            {projectId && isLecturer && allSystemStudents.length > 0 && (
+                <div className="st-add-student-section" style={{ background: 'rgba(255,255,255,0.05)', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
+                    <form onSubmit={handleAddStudent} style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                        <label style={{ color: '#fff', fontSize: '14px' }}>Przypisz studenta:</label>
+                        <select
+                            value={selectedStudentId}
+                            onChange={e => setSelectedStudentId(Number(e.target.value))}
+                            className="st-filter"
+                            style={{ flex: 1, maxWith: '300px' }}
+                            required
+                        >
+                            <option value="">-- Wybierz studenta --</option>
+                            {allSystemStudents.map(student => (
+                                <option key={student.id} value={student.id}>
+                                    {student.nazwisko} {student.imie} ({student.numerIndexu})
+                                </option>
+                            ))}
+                        </select>
+                        <button type="submit" className="st-filter" style={{ background: '#4f7ef7', color: '#fff', border: 'none', padding: '8px 15px', cursor: 'pointer' }}>
+                            Dodaj do projektu
+                        </button>
+                    </form>
+                </div>
+            )}
 
             {loading && (
                 <div className="st-state">
@@ -175,6 +273,7 @@ function StudenciPage() {
                                 <th className="th-sortable" onClick={() => handleSort("email")}>
                                     Email <SortIcon col="email" />
                                 </th>
+                                {projectId && isLecturer && <th className="th-action">Akcja</th>}
                             </tr>
                         </thead>
                         <tbody>
@@ -201,6 +300,16 @@ function StudenciPage() {
                                             {student.email}
                                         </a>
                                     </td>
+                                    {projectId && isLecturer && (
+                                        <td>
+                                            <button 
+                                                onClick={() => handleRemoveStudent(student.id)}
+                                                style={{ background: '#ef4444', color: '#fff', border: 'none', padding: '4px 8px', borderRadius: '4px', cursor: 'pointer', fontSize: '12px' }}
+                                            >
+                                                Usuń
+                                            </button>
+                                        </td>
+                                    )}
                                 </tr>
                             ))}
                         </tbody>

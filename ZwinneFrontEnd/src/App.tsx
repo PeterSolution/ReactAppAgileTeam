@@ -9,6 +9,8 @@ import EditPage from './EditPage/EditPage';
 import MainPage from './MainPage/MainPage';
 import StudenciPage from './Studenci/StudenciPage';
 import AddPage from './AddPage/AddPage';
+import TasksPage from './TasksPage/TasksPage';
+import ChatPage from './ChatPage/ChatPage';
 
 function App() {
 
@@ -16,10 +18,13 @@ function App() {
         <Routes>
             <Route path="/" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
-            <Route path="/edit" element={<EditPage />} />
+            <Route path="/edit/:id" element={<EditPage />} />
             <Route path="/main" element={<MainPage />} />
             <Route path='/students' element={<StudenciPage />} />
+            <Route path='/project/:id/students' element={<StudenciPage />} />
             <Route path='/add' element={<AddPage />} />
+            <Route path='/project/:id/tasks' element={<TasksPage />} />
+            <Route path='/chat' element={<ChatPage />} />
         </Routes>
   )
 }

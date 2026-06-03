@@ -2,7 +2,7 @@ import './main.css';
 import { useState, useEffect, useCallback } from "react";
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-import { ENDPOINTS } from '../../backendConnection';
+import { ENDPOINTS, fetchWithAuth } from '../../backendConnection';
 
 interface Project {
     id: number;
@@ -21,51 +21,54 @@ function formatDate(dateStr: string): string {
 
 function Main() {
     const navigate = useNavigate();
-    const [projects, setProjects] = useState<Project[]>([
-    {
-        id: 1,
-        nazwa: "System zarządzania studentami",
-        opis: "Aplikacja do obsługi projektów i studentów.",
-        utworzony: "2026-05-19",
-        zmodyfikowany: "2026-05-19",
-        dataOddania: "2026-06-30"
-    }
-]);
+    const [projects, setProjects] = useState<Project[]>([]);
     const [searchQuery, setSearchQuery] = useState("");
-    const [loading, setLoading] = useState(false); //zmien na true w deployu
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    // const fetchProjects = useCallback(async (query: string) => {
-    //     setLoading(true);
-    //     setError(null);
-    //     try {
-    //         const url = query.trim()
-    //             ? ENDPOINTS.projects.search(query)
-    //             : ENDPOINTS.projects.getAll();
-    //         const res = await fetch(url);
-    //         if (!res.ok) throw new Error(`Błąd serwera: ${res.status}`);
-    //         const data: Project[] = await res.json();
-    //         setProjects(data);
-    //     } catch (err: any) {
-    //         setError(err.message || "Nie udało się pobrać projektów.");
-    //         setProjects(null as any); // reset projects
-    //     } finally {
-    //         setLoading(false);
-    //         setProjects(null as any); // reset projects
-    //     }
-    // }, []);
+    // Stan paginacji
+    const [page, setPage] = useState(0);
+    const [totalPages, setTotalPages] = useState(1);
+    const [pageSize] = useState(10);
 
-    // useEffect(() => {
-    //     const timer = setTimeout(() => fetchProjects(searchQuery), 300);
-    //     return () => clearTimeout(timer);
-    // }, [searchQuery, fetchProjects]);
+    const currentUserStr = localStorage.getItem("currentUser");
+    const currentUser = currentUserStr ? JSON.parse(currentUserStr) : null;
+    const isLecturer = currentUser?.rola === "ROLE_PROWADZACY";
+
+    const fetchProjects = useCallback(async (query: string, pageNum: number) => {
+        setLoading(true);
+        setError(null);
+        try {
+            const url = ENDPOINTS.projects.getAll(pageNum, pageSize, query);
+            const res = await fetchWithAuth(url);
+            if (!res.ok) throw new Error(`Błąd serwera: ${res.status}`);
+            
+            const data = await res.json();
+            setProjects(data.content || []);
+            setTotalPages(data.totalPages || 1);
+        } catch (err: any) {
+            setError(err.message || "Nie udało się pobrać projektów.");
+            setProjects([]);
+        } finally {
+            setLoading(false);
+        }
+    }, [pageSize]);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            fetchProjects(searchQuery, page);
+        }, 300);
+        return () => clearTimeout(timer);
+    }, [searchQuery, page, fetchProjects]);
 
     const handleDelete = async (id: number) => {
         if (!window.confirm("Czy na pewno chcesz usunąć ten projekt?")) return;
         try {
-            const res = await fetch(ENDPOINTS.projects.delete(id), { method: "DELETE" });
+            const res = await fetchWithAuth(ENDPOINTS.projects.delete(id), { method: "DELETE" });
             if (!res.ok) throw new Error("Nie udało się usunąć projektu.");
             setProjects(prev => prev.filter(p => p.id !== id));
+            // Ponowne pobranie w celu odświeżenia paginacji
+            fetchProjects(searchQuery, page);
         } catch (err: any) {
             alert(err.message);
         }
@@ -89,10 +92,10 @@ function Main() {
                         className="search-input"
                         placeholder="Szukaj projektów..."
                         value={searchQuery}
-                        onChange={e => setSearchQuery(e.target.value)}
+                        onChange={e => { setSearchQuery(e.target.value); setPage(0); }}
                     />
                     {searchQuery && (
-                        <button className="search-clear" onClick={() => setSearchQuery("")}>✕</button>
+                        <button className="search-clear" onClick={() => { setSearchQuery(""); setPage(0); }}>✕</button>
                     )}
                 </div>
             </div>
@@ -140,13 +143,15 @@ function Main() {
                                     <td>{formatDate(project.zmodyfikowany)}</td>
                                     <td>{formatDate(project.dataOddania)}</td>
                                     <td className="td-actions">
-                                        <button
-                                            className="btn btn-edit"
-                                            onClick={() => goToEdit(project.id)}
-                                            title="Edytuj"
-                                        >
-                                            Edytuj
-                                        </button>
+                                        {isLecturer && (
+                                            <button
+                                                className="btn btn-edit"
+                                                onClick={() => goToEdit(project.id)}
+                                                title="Edytuj"
+                                            >
+                                                Edytuj
+                                            </button>
+                                        )}
                                         <button
                                             className="btn btn-tasks"
                                             onClick={() => goToTasks(project.id)}
@@ -161,18 +166,40 @@ function Main() {
                                         >
                                             Studenci
                                         </button>
-                                        <button
-                                            className="btn btn-delete"
-                                            onClick={() => handleDelete(project.id)}
-                                            title="Usuń"
-                                        >
-                                            Usuń
-                                        </button>
+                                        {isLecturer && (
+                                            <button
+                                                className="btn btn-delete"
+                                                onClick={() => handleDelete(project.id)}
+                                                title="Usuń"
+                                            >
+                                                Usuń
+                                            </button>
+                                        )}
                                     </td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
+                    
+                    <div className="pagination-controls" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '20px', gap: '15px' }}>
+                        <button 
+                            className="btn" 
+                            disabled={page === 0} 
+                            onClick={() => setPage(p => p - 1)}
+                            style={{ cursor: page === 0 ? 'not-allowed' : 'pointer' }}
+                        >
+                            Poprzednia
+                        </button>
+                        <span style={{ color: '#fff' }}>Strona {page + 1} z {totalPages}</span>
+                        <button 
+                            className="btn" 
+                            disabled={page >= totalPages - 1} 
+                            onClick={() => setPage(p => p + 1)}
+                            style={{ cursor: page >= totalPages - 1 ? 'not-allowed' : 'pointer' }}
+                        >
+                            Następna
+                        </button>
+                    </div>
                 </div>
             )}
         </div>

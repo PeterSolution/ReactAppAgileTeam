@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./register.css";
+import { ENDPOINTS } from "../../backendConnection";
 
 function Register() {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ function Register() {
     studyMode: "",
     email: "",
     password: "",
+    lecturerKey: "",
   });
 
   const [errors, setErrors] = useState<any>({});
@@ -24,23 +26,30 @@ function Register() {
     if (!form.firstName) newErrors.firstName = "Imię jest wymagane";
     if (!form.lastName) newErrors.lastName = "Nazwisko jest wymagane";
 
-    if (!form.indexNumber)
-      newErrors.indexNumber = "Numer indeksu jest wymagany";
-    else if (!/^\d+$/.test(form.indexNumber))
-      newErrors.indexNumber = "Numer indeksu musi być liczbą";
+    // Walidacja indeksu i formy studiów dotyczy tylko studentów (gdy nie podano klucza prowadzącego)
+    if (!form.lecturerKey) {
+      if (!form.indexNumber) {
+        newErrors.indexNumber = "Numer indeksu jest wymagany";
+      } else if (!/^\d+$/.test(form.indexNumber)) {
+        newErrors.indexNumber = "Numer indeksu musi być liczbą";
+      }
 
-    if (!form.studyMode)
-      newErrors.studyMode = "Wybierz formę studiów";
+      if (!form.studyMode) {
+        newErrors.studyMode = "Wybierz formę studiów";
+      }
+    }
 
-    if (!form.email)
+    if (!form.email) {
       newErrors.email = "Adres e-mail jest wymagany";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
       newErrors.email = "Nieprawidłowy format e-maila";
+    }
 
-    if (!form.password)
+    if (!form.password) {
       newErrors.password = "Hasło jest wymagane";
-    else if (form.password.length < 6)
+    } else if (form.password.length < 6) {
       newErrors.password = "Hasło musi mieć min. 6 znaków";
+    }
 
     return newErrors;
   };
@@ -61,7 +70,7 @@ function Register() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:3000/register", {
+      const res = await fetch(ENDPOINTS.auth.register(), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,10 +78,14 @@ function Register() {
         body: JSON.stringify(form),
       });
 
-      if (res.status === 200) {
+      const data = await res.json().catch(() => null);
+
+      if (res.ok && data?.success) {
         setSuccess(true);
+        setTimeout(() => {
+          navigate("/");
+        }, 1500);
       } else {
-        const data = await res.json().catch(() => null);
         alert(data?.message || "Błąd rejestracji");
       }
     } catch (err) {
@@ -97,7 +110,7 @@ function Register() {
 
         {success && (
           <div className="lp-success-banner">
-            ✓ Zarejestrowano pomyślnie!
+            ✓ Zarejestrowano pomyślnie! Przekierowywanie...
           </div>
         )}
 
@@ -123,35 +136,52 @@ function Register() {
           {errors.lastName && <span className="lp-error-msg">{errors.lastName}</span>}
         </div>
 
-        {/* Numer indeksu */}
+        {/* Klucz Prowadzącego */}
         <div className="lp-input-wrapper">
-          <label className="lp-label">Numer indeksu</label>
+          <label className="lp-label">Klucz prowadzącego (tylko dla wykładowców)</label>
           <input
-            value={form.indexNumber}
-            onChange={(e) => handleChange("indexNumber", e.target.value)}
-            className={`lp-input${errors.indexNumber ? " error" : ""}`}
+            value={form.lecturerKey}
+            type="password"
+            placeholder="Pozostaw puste, jeśli jesteś studentem"
+            onChange={(e) => handleChange("lecturerKey", e.target.value)}
+            className={`lp-input${errors.lecturerKey ? " error" : ""}`}
           />
-          {errors.indexNumber && (
-            <span className="lp-error-msg">{errors.indexNumber}</span>
-          )}
+          {errors.lecturerKey && <span className="lp-error-msg">{errors.lecturerKey}</span>}
         </div>
 
-        {/* Forma studiów */}
-        <div className="lp-input-wrapper">
-          <label className="lp-label">Forma studiów</label>
-          <select
-            value={form.studyMode}
-            onChange={(e) => handleChange("studyMode", e.target.value)}
-            className={`lp-input${errors.studyMode ? " error" : ""}`}
-          >
-            <option value="">-- wybierz --</option>
-            <option value="stacjonarne">Stacjonarne</option>
-            <option value="niestacjonarne">Niestacjonarne</option>
-          </select>
-          {errors.studyMode && (
-            <span className="lp-error-msg">{errors.studyMode}</span>
-          )}
-        </div>
+        {/* Numer indeksu (widoczny tylko dla studentów) */}
+        {!form.lecturerKey && (
+          <div className="lp-input-wrapper">
+            <label className="lp-label">Numer indeksu</label>
+            <input
+              value={form.indexNumber}
+              onChange={(e) => handleChange("indexNumber", e.target.value)}
+              className={`lp-input${errors.indexNumber ? " error" : ""}`}
+            />
+            {errors.indexNumber && (
+              <span className="lp-error-msg">{errors.indexNumber}</span>
+            )}
+          </div>
+        )}
+
+        {/* Forma studiów (widoczna tylko dla studentów) */}
+        {!form.lecturerKey && (
+          <div className="lp-input-wrapper">
+            <label className="lp-label">Forma studiów</label>
+            <select
+              value={form.studyMode}
+              onChange={(e) => handleChange("studyMode", e.target.value)}
+              className={`lp-input${errors.studyMode ? " error" : ""}`}
+            >
+              <option value="">-- wybierz --</option>
+              <option value="stacjonarne">Stacjonarne</option>
+              <option value="niestacjonarne">Niestacjonarne</option>
+            </select>
+            {errors.studyMode && (
+              <span className="lp-error-msg">{errors.studyMode}</span>
+            )}
+          </div>
+        )}
 
         {/* Email */}
         <div className="lp-input-wrapper">

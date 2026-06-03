@@ -1,8 +1,7 @@
 import './addPageMain.css';
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { BACKEND_URL } from '../../backendConnection';
-import { Navigate } from 'react-router-dom';
+import { ENDPOINTS, fetchWithAuth } from '../../backendConnection';
 
 interface ProjectForm {
     nazwa: string;
@@ -29,7 +28,7 @@ function AddPageMain() {
         setLoading(true);
         setError(null);
         try {
-            const res = await fetch(`${BACKEND_URL}/api/projects`, {
+            const res = await fetchWithAuth(ENDPOINTS.create(), {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form),
