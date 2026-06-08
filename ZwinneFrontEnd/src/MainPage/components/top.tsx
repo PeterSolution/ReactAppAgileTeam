@@ -27,6 +27,7 @@ function Top() {
                 <a href="/main" className="top-link">Projekty</a>
                 <a href="/students" className="top-link">Studenci</a>
                 <a href="/chat" className="top-link">Czat Ogólny</a>
+                <a href="/add" className="top-link">Dodaj Projekt</a>
             </nav>
             <div className='btnRightTopMain'>
                 <button className="logout-btn" onClick={handleLogout}>

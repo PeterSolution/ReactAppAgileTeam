@@ -1,219 +1,48 @@
-2026-06-06 00:13:08 [MessageBroker-2] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 4, active threads = 1, queued tasks = 0, completed tasks = 3]
-2026-06-06 10:10:37 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
-2026-06-06 10:10:37 [main] INFO  p.e.p.z.ZwinneBackEndApplication - Starting ZwinneBackEndApplication using Java 17.0.19 with PID 13604 (F:\ReactAppAgileTeam\ZwinneBackEnd\build\classes\java\main started by Piotr in F:\ReactAppAgileTeam\ZwinneBackEnd)
-2026-06-06 10:10:37 [main] DEBUG p.e.p.z.ZwinneBackEndApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
-2026-06-06 10:10:37 [main] INFO  p.e.p.z.ZwinneBackEndApplication - No active profile set, falling back to 1 default profile: "default"
-2026-06-06 10:10:42 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-06 10:10:42 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 252 ms. Found 6 JPA repository interfaces.
-2026-06-06 10:10:44 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-06-06 10:10:44 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2026-06-06 10:10:44 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-06-06 10:10:44 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
-2026-06-06 10:10:45 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-06-06 10:10:45 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7634 ms
-2026-06-06 10:10:46 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-06 10:10:46 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
-2026-06-06 10:10:46 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-06-06 10:10:47 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-06 10:10:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-06-06 10:10:49 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2729bb71
-2026-06-06 10:10:49 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-06-06 10:10:49 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-06 10:10:54 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-06 10:10:55 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-06 10:10:56 [main] DEBUG p.e.p.z.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2026-06-06 10:10:56 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-06-06 10:10:56 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-06 10:10:56 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6fe55fcf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4d1f6e1c, org.springframework.security.web.context.SecurityContextHolderFilter@1ead6e20, org.springframework.security.web.header.HeaderWriterFilter@70e07ef8, org.springframework.web.filter.CorsFilter@3431cb1f, org.springframework.security.web.authentication.logout.LogoutFilter@443d94ae, pl.edu.pbs.zwinnebackend.security.JwtAuthenticationFilter@1e987f59, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@389fad5b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@665c79a2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@42c9f2cd, org.springframework.security.web.session.SessionManagementFilter@240c626d, org.springframework.security.web.access.ExceptionTranslationFilter@4bb4cc8c, org.springframework.security.web.access.intercept.AuthorizationFilter@73ba3c4b]
-2026-06-06 10:10:57 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2026-06-06 10:10:57 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-06-06 10:10:57 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
-2026-06-06 10:10:57 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@30b2d267]]
-2026-06-06 10:10:57 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
-2026-06-06 10:10:57 [main] INFO  p.e.p.z.ZwinneBackEndApplication - Started ZwinneBackEndApplication in 20.68 seconds (process running for 21.782)
-2026-06-06 10:11:57 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
-2026-06-06 10:41:11 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-06-06 10:41:11 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-06-06 10:41:11 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2026-06-06 10:41:11 [http-nio-8080-exec-1] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostęp: Full authentication is required to access this resource
-2026-06-06 10:41:11 [http-nio-8080-exec-1] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostęp: Full authentication is required to access this resource
-2026-06-06 10:41:55 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 2, active threads = 1, queued tasks = 0, completed tasks = 1]
-2026-06-06 10:42:33 [http-nio-8080-exec-8] WARN  o.s.d.w.c.SpringDataJacksonConfiguration$PageModule$PlainPageSerializationWarning - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+2026-06-08 09:45:36 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-06-08 09:45:36 [main] INFO  p.e.p.z.ZwinneBackEndApplication - Starting ZwinneBackEndApplication using Java 17.0.19 with PID 18148 (F:\ReactAppAgileTeam\ZwinneBackEnd\build\classes\java\main started by Piotr in F:\ReactAppAgileTeam\ZwinneBackEnd)
+2026-06-08 09:45:36 [main] DEBUG p.e.p.z.ZwinneBackEndApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
+2026-06-08 09:45:36 [main] INFO  p.e.p.z.ZwinneBackEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-08 09:45:38 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-08 09:45:38 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 123 ms. Found 6 JPA repository interfaces.
+2026-06-08 09:45:39 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-08 09:45:39 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-06-08 09:45:39 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-08 09:45:39 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2026-06-08 09:45:39 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-08 09:45:39 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3157 ms
+2026-06-08 09:45:40 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-08 09:45:40 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-06-08 09:45:40 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-08 09:45:40 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-08 09:45:40 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-08 09:45:41 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1a7e799e
+2026-06-08 09:45:41 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-08 09:45:41 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-08 09:45:43 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-08 09:45:44 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-08 09:45:44 [main] DEBUG p.e.p.z.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2026-06-08 09:45:45 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-08 09:45:45 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-08 09:45:46 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@257e8c43, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@14e54a35, org.springframework.security.web.context.SecurityContextHolderFilter@67c1fc9b, org.springframework.security.web.header.HeaderWriterFilter@30623109, org.springframework.web.filter.CorsFilter@298cfe89, org.springframework.security.web.authentication.logout.LogoutFilter@3c89fdd8, pl.edu.pbs.zwinnebackend.security.JwtAuthenticationFilter@247415be, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@18a538a0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@70e07ef8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@189fb01b, org.springframework.security.web.session.SessionManagementFilter@5dfd4fac, org.springframework.security.web.access.ExceptionTranslationFilter@c6a1be2, org.springframework.security.web.access.intercept.AuthorizationFilter@6a2b6031]
+2026-06-08 09:45:46 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-06-08 09:45:46 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-08 09:45:46 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2026-06-08 09:45:46 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@598f6c93]]
+2026-06-08 09:45:46 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2026-06-08 09:45:46 [main] INFO  p.e.p.z.ZwinneBackEndApplication - Started ZwinneBackEndApplication in 10.923 seconds (process running for 12.964)
+2026-06-08 09:46:46 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2026-06-08 09:56:37 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-08 09:56:37 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-08 09:56:37 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-06-08 09:56:39 [http-nio-8080-exec-5] WARN  o.s.d.w.c.SpringDataJacksonConfiguration$PageModule$PlainPageSerializationWarning - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
 	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
 	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
 
-2026-06-06 10:43:21 [http-nio-8080-exec-10] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostęp: Full authentication is required to access this resource
-2026-06-06 10:43:21 [http-nio-8080-exec-10] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostęp: Full authentication is required to access this resource
-2026-06-06 10:49:02 [http-nio-8080-exec-5] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: a@gmail.com
-2026-06-06 11:11:55 [MessageBroker-2] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 2], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 0, completed tasks = 2]
-2026-06-06 11:41:55 [MessageBroker-2] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 2], sockJsScheduler[pool size = 4, active threads = 1, queued tasks = 0, completed tasks = 3]
-2026-06-06 11:53:27 [http-nio-8080-exec-3] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
-2026-06-06 11:53:27 [http-nio-8080-exec-2] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
-2026-06-06 11:53:27 [http-nio-8080-exec-2] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostęp: Full authentication is required to access this resource
-2026-06-06 11:53:27 [http-nio-8080-exec-2] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostęp: Full authentication is required to access this resource
-2026-06-06 11:56:00 [http-nio-8080-exec-3] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: b@gmail.com
-2026-06-06 11:56:25 [http-nio-8080-exec-1] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: b@gmail.com
-2026-06-06 11:56:29 [http-nio-8080-exec-8] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: b@gmail.com
-2026-06-06 12:11:55 [MessageBroker-2] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 5 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(5)-CONNECTED(5)-DISCONNECT(1)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 54], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 13], sockJsScheduler[pool size = 4, active threads = 1, queued tasks = 0, completed tasks = 4]
-2026-06-06 12:41:55 [MessageBroker-2] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 5 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(5)-CONNECTED(5)-DISCONNECT(1)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 54], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 13], sockJsScheduler[pool size = 4, active threads = 1, queued tasks = 0, completed tasks = 5]
-2026-06-06 12:54:03 [http-nio-8080-exec-4] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostęp: Full authentication is required to access this resource
-2026-06-06 12:54:03 [http-nio-8080-exec-4] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostęp: Full authentication is required to access this resource
-2026-06-06 13:06:46 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
-2026-06-06 13:06:46 [main] INFO  p.e.p.z.ZwinneBackEndApplication - Starting ZwinneBackEndApplication using Java 17.0.19 with PID 21536 (F:\ReactAppAgileTeam\ZwinneBackEnd\build\classes\java\main started by Piotr in F:\ReactAppAgileTeam\ZwinneBackEnd)
-2026-06-06 13:06:46 [main] DEBUG p.e.p.z.ZwinneBackEndApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
-2026-06-06 13:06:46 [main] INFO  p.e.p.z.ZwinneBackEndApplication - No active profile set, falling back to 1 default profile: "default"
-2026-06-06 13:06:47 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-06 13:06:47 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 89 ms. Found 6 JPA repository interfaces.
-2026-06-06 13:06:48 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-06-06 13:06:48 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2026-06-06 13:06:48 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-06-06 13:06:48 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
-2026-06-06 13:06:48 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-06-06 13:06:48 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2037 ms
-2026-06-06 13:06:48 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-06 13:06:48 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
-2026-06-06 13:06:48 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-06-06 13:06:49 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-06 13:06:49 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-06-06 13:06:49 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@55071497
-2026-06-06 13:06:49 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-06-06 13:06:49 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-06 13:06:51 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-06 13:06:52 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-06 13:06:52 [main] DEBUG p.e.p.z.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2026-06-06 13:06:52 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-06-06 13:06:53 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-06 13:06:54 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@304933cb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7a4199e5, org.springframework.security.web.context.SecurityContextHolderFilter@53a645a2, org.springframework.security.web.header.HeaderWriterFilter@4bb4cc8c, org.springframework.web.filter.CorsFilter@6fe55fcf, org.springframework.security.web.authentication.logout.LogoutFilter@4f5ad6b7, pl.edu.pbs.zwinnebackend.security.JwtAuthenticationFilter@4ee1c29a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1ead6e20, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27f6e2c3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4d1f6e1c, org.springframework.security.web.session.SessionManagementFilter@22bbbe6, org.springframework.security.web.access.ExceptionTranslationFilter@4b8466c2, org.springframework.security.web.access.intercept.AuthorizationFilter@4f70b659]
-2026-06-06 13:06:54 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2026-06-06 13:06:54 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-06-06 13:06:54 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
-2026-06-06 13:06:54 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@184e5c44]]
-2026-06-06 13:06:54 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
-2026-06-06 13:06:54 [main] INFO  p.e.p.z.ZwinneBackEndApplication - Started ZwinneBackEndApplication in 9.03 seconds (process running for 9.64)
-2026-06-06 13:07:17 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-06-06 13:07:17 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-06-06 13:07:17 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2026-06-06 13:07:17 [http-nio-8080-exec-1] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostęp: Full authentication is required to access this resource
-2026-06-06 13:07:17 [http-nio-8080-exec-1] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostęp: Full authentication is required to access this resource
-2026-06-06 13:07:54 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
-2026-06-06 13:09:57 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
-2026-06-06 13:09:58 [main] INFO  p.e.p.z.ZwinneBackEndApplication - Starting ZwinneBackEndApplication using Java 17.0.19 with PID 36000 (F:\ReactAppAgileTeam\ZwinneBackEnd\build\classes\java\main started by Piotr in F:\ReactAppAgileTeam\ZwinneBackEnd)
-2026-06-06 13:09:58 [main] DEBUG p.e.p.z.ZwinneBackEndApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
-2026-06-06 13:09:58 [main] INFO  p.e.p.z.ZwinneBackEndApplication - No active profile set, falling back to 1 default profile: "default"
-2026-06-06 13:09:59 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-06 13:09:59 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 111 ms. Found 6 JPA repository interfaces.
-2026-06-06 13:10:00 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-06-06 13:10:00 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2026-06-06 13:10:00 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-06-06 13:10:00 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
-2026-06-06 13:10:00 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-06-06 13:10:00 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2335 ms
-2026-06-06 13:10:00 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-06 13:10:00 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
-2026-06-06 13:10:00 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-06-06 13:10:01 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-06 13:10:01 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-06-06 13:10:01 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4537880f
-2026-06-06 13:10:01 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-06-06 13:10:01 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-06 13:10:02 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-06 13:10:03 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-06 13:10:03 [main] DEBUG p.e.p.z.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2026-06-06 13:10:03 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-06-06 13:10:04 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-06 13:10:04 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5c94d4b8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4400026, org.springframework.security.web.context.SecurityContextHolderFilter@2044f708, org.springframework.security.web.header.HeaderWriterFilter@40874f54, org.springframework.web.filter.CorsFilter@308d8de8, org.springframework.security.web.authentication.logout.LogoutFilter@48064a5a, pl.edu.pbs.zwinnebackend.security.JwtAuthenticationFilter@4fe3199d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@18bab95b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2f1b8770, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7c08461b, org.springframework.security.web.session.SessionManagementFilter@183e64a8, org.springframework.security.web.access.ExceptionTranslationFilter@5c8859b4, org.springframework.security.web.access.intercept.AuthorizationFilter@49522bdf]
-2026-06-06 13:10:04 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2026-06-06 13:10:04 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-06-06 13:10:04 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
-2026-06-06 13:10:04 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@23657729]]
-2026-06-06 13:10:04 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
-2026-06-06 13:10:04 [main] INFO  p.e.p.z.ZwinneBackEndApplication - Started ZwinneBackEndApplication in 7.633 seconds (process running for 8.243)
-2026-06-06 13:10:09 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-06-06 13:10:09 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-06-06 13:10:09 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2026-06-06 13:10:18 [http-nio-8080-exec-4] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
-2026-06-06 13:10:24 [http-nio-8080-exec-5] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
-2026-06-06 13:10:37 [http-nio-8080-exec-10] WARN  o.s.d.w.c.SpringDataJacksonConfiguration$PageModule$PlainPageSerializationWarning - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
-	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
-	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
-
-2026-06-06 13:11:04 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
-2026-06-06 13:30:35 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
-2026-06-06 13:30:35 [main] INFO  p.e.p.z.ZwinneBackEndApplication - Starting ZwinneBackEndApplication using Java 17.0.19 with PID 11288 (F:\ReactAppAgileTeam\ZwinneBackEnd\build\classes\java\main started by Piotr in F:\ReactAppAgileTeam\ZwinneBackEnd)
-2026-06-06 13:30:35 [main] DEBUG p.e.p.z.ZwinneBackEndApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
-2026-06-06 13:30:35 [main] INFO  p.e.p.z.ZwinneBackEndApplication - No active profile set, falling back to 1 default profile: "default"
-2026-06-06 13:30:36 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-06 13:30:36 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 85 ms. Found 6 JPA repository interfaces.
-2026-06-06 13:30:37 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-06-06 13:30:37 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2026-06-06 13:30:37 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-06-06 13:30:37 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
-2026-06-06 13:30:37 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-06-06 13:30:37 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1833 ms
-2026-06-06 13:30:37 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-06 13:30:37 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
-2026-06-06 13:30:37 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-06-06 13:30:37 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-06 13:30:37 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-06-06 13:30:38 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@14292d71
-2026-06-06 13:30:38 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-06-06 13:30:38 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-06 13:30:39 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-06 13:30:39 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-06 13:30:40 [main] DEBUG p.e.p.z.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2026-06-06 13:30:40 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-06-06 13:30:40 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-06 13:30:41 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4400026, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@308d8de8, org.springframework.security.web.context.SecurityContextHolderFilter@4bb4cc8c, org.springframework.security.web.header.HeaderWriterFilter@2bc21edd, org.springframework.web.filter.CorsFilter@7c08461b, org.springframework.security.web.authentication.logout.LogoutFilter@7d018c58, pl.edu.pbs.zwinnebackend.security.JwtAuthenticationFilter@58ebfbcb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@70e07ef8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@74fd5fb0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6c37c36, org.springframework.security.web.session.SessionManagementFilter@7a553110, org.springframework.security.web.access.ExceptionTranslationFilter@56897de0, org.springframework.security.web.access.intercept.AuthorizationFilter@77587422]
-2026-06-06 13:30:41 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2026-06-06 13:30:41 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-06-06 13:30:41 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
-2026-06-06 13:30:41 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@365291bd]]
-2026-06-06 13:30:41 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
-2026-06-06 13:30:41 [main] INFO  p.e.p.z.ZwinneBackEndApplication - Started ZwinneBackEndApplication in 6.74 seconds (process running for 7.253)
-2026-06-06 13:30:58 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-06-06 13:30:58 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-06-06 13:30:58 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2026-06-06 13:31:41 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
-2026-06-06 13:37:58 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
-2026-06-06 13:37:58 [main] INFO  p.e.p.z.ZwinneBackEndApplication - Starting ZwinneBackEndApplication using Java 17.0.19 with PID 36528 (F:\ReactAppAgileTeam\ZwinneBackEnd\build\classes\java\main started by Piotr in F:\ReactAppAgileTeam\ZwinneBackEnd)
-2026-06-06 13:37:58 [main] DEBUG p.e.p.z.ZwinneBackEndApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
-2026-06-06 13:37:58 [main] INFO  p.e.p.z.ZwinneBackEndApplication - No active profile set, falling back to 1 default profile: "default"
-2026-06-06 13:38:00 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-06 13:38:00 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 87 ms. Found 6 JPA repository interfaces.
-2026-06-06 13:38:01 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-06-06 13:38:01 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2026-06-06 13:38:01 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-06-06 13:38:01 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
-2026-06-06 13:38:01 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-06-06 13:38:01 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3097 ms
-2026-06-06 13:38:01 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-06 13:38:01 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
-2026-06-06 13:38:01 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-06-06 13:38:02 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-06 13:38:02 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-06-06 13:38:02 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@da22aa
-2026-06-06 13:38:02 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-06-06 13:38:02 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-06 13:38:04 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-06 13:38:05 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-06 13:38:05 [main] DEBUG p.e.p.z.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2026-06-06 13:38:05 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-06-06 13:38:05 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-06 13:38:06 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@49522bdf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@77587422, org.springframework.security.web.context.SecurityContextHolderFilter@183e64a8, org.springframework.security.web.header.HeaderWriterFilter@4795876e, org.springframework.web.filter.CorsFilter@39eea4f6, org.springframework.security.web.authentication.logout.LogoutFilter@5d1d05ff, pl.edu.pbs.zwinnebackend.security.JwtAuthenticationFilter@7bbd944e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4b8466c2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@24ffe853, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5c94d4b8, org.springframework.security.web.session.SessionManagementFilter@50f65fe0, org.springframework.security.web.access.ExceptionTranslationFilter@4fe8ac61, org.springframework.security.web.access.intercept.AuthorizationFilter@14e54a35]
-2026-06-06 13:38:06 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2026-06-06 13:38:06 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-06-06 13:38:06 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
-2026-06-06 13:38:06 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@2d2710a8]]
-2026-06-06 13:38:06 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
-2026-06-06 13:38:06 [main] INFO  p.e.p.z.ZwinneBackEndApplication - Started ZwinneBackEndApplication in 9.252 seconds (process running for 10.4)
-2026-06-06 13:38:13 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-06-06 13:38:13 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-06-06 13:38:13 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2026-06-06 13:39:06 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
-2026-06-06 13:46:36 [http-nio-8080-exec-1] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
-2026-06-06 13:46:38 [http-nio-8080-exec-3] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
-2026-06-06 13:46:45 [http-nio-8080-exec-7] WARN  o.s.d.w.c.SpringDataJacksonConfiguration$PageModule$PlainPageSerializationWarning - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
-	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
-	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
-
-2026-06-06 13:46:47 [http-nio-8080-exec-9] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: a@gmail.com
+2026-06-08 10:12:34 [http-nio-8080-exec-8] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
+2026-06-08 10:16:46 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 2, active threads = 1, queued tasks = 0, completed tasks = 1]
+2026-06-08 10:17:03 [http-nio-8080-exec-10] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: w@gmail.com
+2026-06-08 10:19:41 [http-nio-8080-exec-4] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: w@gmail.com
+2026-06-08 10:22:51 [http-nio-8080-exec-2] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: w@gmail.com
+2026-06-08 10:23:15 [http-nio-8080-exec-2] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: w@gmail.com
+2026-06-08 10:28:22 [http-nio-8080-exec-8] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: w@gmail.com
+2026-06-08 10:28:26 [http-nio-8080-exec-4] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: w@gmail.com
