@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap');
+
+/* ── Variables ─────────────────────────────────────────────── */
+:root {
+    --add-font-sans: 'DM Sans', sans-serif;
+    --add-font-mono: 'DM Mono', monospace;
+
+    --add-bg-page:        #f2f0eb;
+    --add-bg-card:        #faf9f7;
+    --add-bg-input:       #f5f3ef;
+    --add-bg-input-focus: #ffffff;
+    --add-bg-hover:       #eeebe5;
+
+    --add-border:         #dbd8d0;
+    --add-border-strong:  #c4c0b6;
+    --add-border-focus:   #8a8070;
+
+    --add-text-primary:   #1e1c18;
+    --add-text-secondary: #6b6760;
+    --add-text-tertiary:  #a09c94;
+    --add-text-muted:     #bcb9b1;
+
+    --add-accent:         #2d2a24;
+    --add-accent-hover:   #1a1815;
+
+    --add-danger-bg:      #fdf1f0;
+    --add-danger-border:  #e8b8b5;
+    --add-danger-text:    #7a2e2b;
+
+    --add-radius-sm:  4px;
+    --add-radius-md:  8px;
+    --add-radius-lg:  14px;
+
+    --add-shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.05);
+    --add-transition:  150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Page wrapper ───────────────────────────────────────────── */
+.add-container {
+    font-family: var(--add-font-sans);
+    min-height: 100vh;
+    background-color: var(--add-bg-page);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 3rem 1rem 4rem;
+    box-sizing: border-box;
+}
+
+/* ── Card ───────────────────────────────────────────────────── */
+.add-card {
+    width: 100%;
+    max-width: 560px;
+    background: var(--add-bg-card);
+    border: 1px solid var(--add-border);
+    border-radius: var(--add-radius-lg);
+    box-shadow: var(--add-shadow-card);
+    overflow: hidden;
+    animation: add-fade-in 220ms ease both;
+}
+
+@keyframes add-fade-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Card header ────────────────────────────────────────────── */
+.add-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem 1rem;
+    border-bottom: 1px solid var(--add-border);
+    background: var(--add-bg-page);
+}
+
+.add-subtitle {
+    font-family: var(--add-font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--add-text-muted);
+    margin: 0 0 3px;
+}
+
+.add-title {
+    font-family: var(--add-font-sans);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--add-text-primary);
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+/* ── Back button ────────────────────────────────────────────── */
+.add-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--add-font-sans);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--add-text-secondary);
+    background: none;
+    border: 1px solid var(--add-border);
+    border-radius: var(--add-radius-sm);
+    padding: 5px 12px;
+    cursor: pointer;
+    transition: color var(--add-transition),
+                border-color var(--add-transition),
+                background var(--add-transition);
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.add-back-btn:hover {
+    color: var(--add-text-primary);
+    border-color: var(--add-border-strong);
+    background: var(--add-bg-hover);
+}
+
+/* ── Error alert ────────────────────────────────────────────── */
+.add-error {
+    font-size: 13.5px;
+    border-radius: 0;
+    padding: 10px 1.5rem;
+    border-bottom: 1px solid var(--add-danger-border);
+    background: var(--add-danger-bg);
+    color: var(--add-danger-text);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    animation: add-alert-in 180ms ease both;
+}
+
+@keyframes add-alert-in {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Form ───────────────────────────────────────────────────── */
+.add-form {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+}
+
+/* ── Field ──────────────────────────────────────────────────── */
+.add-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.add-label {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--add-text-secondary);
+    letter-spacing: 0.01em;
+}
+
+/* ── Inputs ─────────────────────────────────────────────────── */
+.add-input {
+    font-family: var(--add-font-sans);
+    font-size: 14.5px;
+    font-weight: 400;
+    color: var(--add-text-primary);
+    background: var(--add-bg-input);
+    border: 1px solid var(--add-border);
+    border-radius: var(--add-radius-md);
+    padding: 9px 12px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color var(--add-transition),
+                background var(--add-transition),
+                box-shadow var(--add-transition);
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.add-input:hover {
+    border-color: var(--add-border-strong);
+}
+
+.add-input:focus {
+    border-color: var(--add-border-focus);
+    background: var(--add-bg-input-focus);
+    box-shadow: 0 0 0 3px rgba(138, 128, 112, 0.12);
+}
+
+.add-input::placeholder {
+    color: var(--add-text-muted);
+    font-weight: 300;
+}
+
+.add-input[type="date"] {
+    cursor: pointer;
+    color-scheme: light;
+}
+
+.add-textarea {
+    resize: vertical;
+    min-height: 96px;
+    line-height: 1.55;
+}
+
+/* ── Actions row ────────────────────────────────────────────── */
+.add-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding-top: 0.25rem;
+}
+
+/* ── Buttons ────────────────────────────────────────────────── */
+.add-btn-cancel,
+.add-btn-submit {
+    font-family: var(--add-font-sans);
+    font-size: 13.5px;
+    font-weight: 500;
+    border-radius: var(--add-radius-md);
+    padding: 8px 16px;
+    cursor: pointer;
+    border: 1px solid;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background var(--add-transition),
+                border-color var(--add-transition),
+                color var(--add-transition),
+                transform var(--add-transition),
+                opacity var(--add-transition);
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.add-btn-cancel:active,
+.add-btn-submit:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.add-btn-cancel {
+    background: transparent;
+    border-color: var(--add-border);
+    color: var(--add-text-secondary);
+}
+
+.add-btn-cancel:hover {
+    background: var(--add-bg-hover);
+    border-color: var(--add-border-strong);
+    color: var(--add-text-primary);
+}
+
+.add-btn-submit {
+    background: var(--add-accent);
+    border-color: var(--add-accent);
+    color: #faf9f7;
+}
+
+.add-btn-submit:hover:not(:disabled) {
+    background: var(--add-accent-hover);
+    border-color: var(--add-accent-hover);
+}
+
+.add-btn-submit:disabled {
+    opacity: 0.38;
+    cursor: not-allowed;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 480px) {
+    .add-container {
+        padding: 1rem 0.5rem 3rem;
+    }
+
+    .add-card {
+        border-radius: var(--add-radius-md);
+    }
+
+    .add-card-header {
+        padding: 1rem;
+    }
+
+    .add-form {
+        padding: 1.1rem 1rem;
+    }
+
+    .add-actions {
+        flex-direction: column-reverse;
+    }
+
+    .add-btn-cancel,
+    .add-btn-submit {
+        width: 100%;
+        justify-content: center;
+    }
+}

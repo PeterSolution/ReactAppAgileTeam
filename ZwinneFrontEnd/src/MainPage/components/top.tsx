@@ -20,6 +20,9 @@ function Top() {
         localStorage.removeItem("currentUser");
         navigate('/');
     };
+
+    const user = JSON.parse(localStorage.getItem("currentUser") || "{}");
+
  
     return (
         <header className="top-bar">
@@ -27,6 +30,9 @@ function Top() {
                 <a href="/main" className="top-link">Projekty</a>
                 <a href="/students" className="top-link">Studenci</a>
                 <a href="/chat" className="top-link">Czat Ogólny</a>
+                {user.rola === "ROLE_PROWADZACY" && (
+                    <a href="/add" className="top-link">Dodaj Projekt</a>
+                )}
             </nav>
             <div className='btnRightTopMain'>
                 <button className="logout-btn" onClick={handleLogout}>

@@ -219,7 +219,7 @@ function StudenciPage() {
                             value={selectedStudentId}
                             onChange={e => setSelectedStudentId(Number(e.target.value))}
                             className="st-filter"
-                            style={{ flex: 1, maxWith: '300px' }}
+                            style={{ flex: 1, maxWidth: '300px' }}
                             required
                         >
                             <option value="">-- Wybierz studenta --</option>

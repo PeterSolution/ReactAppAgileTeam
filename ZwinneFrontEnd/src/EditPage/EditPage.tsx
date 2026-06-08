@@ -84,7 +84,8 @@ function EditPage() {
     };
 
     const hasChanges =
-        project !== null && (nazwa !== project.nazwa || opis !== project.opis || dataOddania !== project.dataOddania);
+        project !== null &&
+        (nazwa !== project.nazwa || opis !== project.opis || dataOddania !== project.dataOddania);
 
     if (loading) {
         return (
@@ -98,7 +99,8 @@ function EditPage() {
     if (error && !project) {
         return (
             <div className="ep-center ep-error-state">
-                <span>⚠</span> {error}
+                <span>⚠</span>
+                <span>{error}</span>
                 <button className="ep-btn ep-btn-secondary" onClick={() => navigate(-1)}>
                     Wróć
                 </button>
@@ -109,10 +111,12 @@ function EditPage() {
     return (
         <div className="ep-container">
             <div className="ep-card">
+
                 <div className="ep-card-header">
                     <button className="ep-back" onClick={() => navigate(-1)} title="Wróć">
-                        <svg viewBox="0 0 20 20" fill="none" width="18" height="18">
-                            <path d="M12 5L7 10L12 15" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                        <svg viewBox="0 0 20 20" fill="none" width="16" height="16" aria-hidden="true">
+                            <path d="M12 5L7 10L12 15" stroke="currentColor" strokeWidth="1.8"
+                                  strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                         Wróć
                     </button>
@@ -136,12 +140,13 @@ function EditPage() {
                 <div className="ep-divider" />
 
                 <div className="ep-form">
+
                     <div className="ep-field">
-                        <label className="ep-label" htmlFor="nazwa">
+                        <label className="ep-label" htmlFor="ep-nazwa">
                             Nazwa <span className="ep-required">*</span>
                         </label>
                         <input
-                            id="nazwa"
+                            id="ep-nazwa"
                             type="text"
                             className="ep-input"
                             value={nazwa}
@@ -153,11 +158,11 @@ function EditPage() {
                     </div>
 
                     <div className="ep-field">
-                        <label className="ep-label" htmlFor="dataOddania">
+                        <label className="ep-label" htmlFor="ep-dataOddania">
                             Data oddania <span className="ep-required">*</span>
                         </label>
                         <input
-                            id="dataOddania"
+                            id="ep-dataOddania"
                             type="date"
                             className="ep-input"
                             value={dataOddania}
@@ -166,9 +171,9 @@ function EditPage() {
                     </div>
 
                     <div className="ep-field">
-                        <label className="ep-label" htmlFor="opis">Opis</label>
+                        <label className="ep-label" htmlFor="ep-opis">Opis</label>
                         <textarea
-                            id="opis"
+                            id="ep-opis"
                             className="ep-textarea"
                             value={opis}
                             onChange={e => setOpis(e.target.value)}
@@ -200,9 +205,13 @@ function EditPage() {
                             onClick={handleSave}
                             disabled={!hasChanges || saving}
                         >
-                            {saving ? <><span className="ep-spinner ep-spinner-sm" /> Zapisywanie...</> : "Zapisz zmiany"}
+                            {saving
+                                ? <><span className="ep-spinner ep-spinner-sm" /> Zapisywanie...</>
+                                : "Zapisz zmiany"
+                            }
                         </button>
                     </div>
+
                 </div>
             </div>
         </div>

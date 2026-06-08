@@ -1,6 +1,6 @@
 .gc-container {
     padding: 30px;
-    max-width: 900px;
+    width: 90%;
     margin: 0 auto;
     color: #f3f4f6;
     font-family: 'Inter', system-ui, sans-serif;
@@ -107,7 +107,7 @@
     border-radius: 8px;
     padding: 10px 14px;
     font-size: 14px;
-    color: #e5e7eb;
+    color: #000000;
     word-break: break-word;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

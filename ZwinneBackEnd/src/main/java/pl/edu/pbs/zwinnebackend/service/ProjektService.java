@@ -1,5 +1,7 @@
 package pl.edu.pbs.zwinnebackend.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,6 +24,8 @@ public class ProjektService {
 
     @Autowired
     private UzytkownikRepository uzytkownikRepository;
+
+
 
     public Page<Projekt> getAllProjects(String search, int page, int size, String sortBy, String direction, UserPrincipal currentUser) {
         Sort sort = Sort.by(Sort.Direction.fromString(direction), sortBy);
@@ -92,5 +96,9 @@ public class ProjektService {
 
         projekt.getStudenci().remove(student);
         projektRepository.save(projekt);
+    }
+
+    public List<Projekt> getAllProjects() {
+        return projektRepository.findAll();
     }
 }

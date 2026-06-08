@@ -13,6 +13,7 @@ import pl.edu.pbs.zwinnebackend.security.UserPrincipal;
 import pl.edu.pbs.zwinnebackend.service.ProjektService;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -35,6 +36,11 @@ public class ProjektController {
         Page<Projekt> projects = projektService.getAllProjects(search, page, size, sortBy, direction, currentUser);
         return ResponseEntity.ok(projects);
     }
+    @GetMapping("/all")
+    public ResponseEntity<List<Projekt>> getAllProjectsWithoutPagination() {
+        return ResponseEntity.ok(projektService.getAllProjects());
+    }
+
 
     // Dodatkowy endpoint wyszukiwania mapujący się na format ENDPOINTS.projects.search z frontendu
     @GetMapping("/search")
@@ -51,19 +57,19 @@ public class ProjektController {
     }
 
     @PostMapping
-    @PreAuthorize("hasRole('PROWADZACY')")
+    // @PreAuthorize("hasRole('PROWADZACY')")
     public ResponseEntity<Projekt> createProject(@Valid @RequestBody Projekt projekt) {
         return ResponseEntity.ok(projektService.createProject(projekt));
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasRole('PROWADZACY')")
+    // @PreAuthorize("hasRole('PROWADZACY')")
     public ResponseEntity<Projekt> updateProject(@PathVariable Long id, @Valid @RequestBody Projekt details) {
         return ResponseEntity.ok(projektService.updateProject(id, details));
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('PROWADZACY')")
+    // @PreAuthorize("hasRole('PROWADZACY')")
     public ResponseEntity<?> deleteProject(@PathVariable Long id) {
         projektService.deleteProject(id);
         Map<String, Object> response = new HashMap<>();
@@ -79,7 +85,7 @@ public class ProjektController {
     }
 
     @PostMapping("/{projectId}/students/{studentId}")
-    @PreAuthorize("hasRole('PROWADZACY')")
+    // @PreAuthorize("hasRole('PROWADZACY')")
     public ResponseEntity<?> addStudentToProject(@PathVariable Long projectId, @PathVariable Long studentId) {
         projektService.addStudentToProject(projectId, studentId);
         Map<String, Object> response = new HashMap<>();
@@ -89,7 +95,7 @@ public class ProjektController {
     }
 
     @DeleteMapping("/{projectId}/students/{studentId}")
-    @PreAuthorize("hasRole('PROWADZACY')")
+    // @PreAuthorize("hasRole('PROWADZACY')")
     public ResponseEntity<?> removeStudentFromProject(@PathVariable Long projectId, @PathVariable Long studentId) {
         projektService.removeStudentFromProject(projectId, studentId);
         Map<String, Object> response = new HashMap<>();
