@@ -56,7 +56,7 @@ public class SecurityConfig {
                 .requestMatchers("/ws/**").permitAll() // WebSocket STOMP endpoint
                 .requestMatchers("/api/files/**").permitAll() // Umożliwia pobieranie plików (zabezpieczenie możemy dodać w kontrolerze)
                 .requestMatchers("/api/projects/**").permitAll()
-                .anyRequest().permitAll()
+                .anyRequest().authenticated()
             );
 
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
