@@ -62,6 +62,20 @@ public class ChatService {
         return chatRepository.save(message);
     }
 
+    @Transactional
+    public WiadomoscChat saveSystemMessage(Long projectId, String content) {
+        Projekt projekt = projektRepository.findById(projectId)
+                .orElseThrow(() -> new IllegalArgumentException("Projekt o ID " + projectId + " nie istnieje."));
+
+        WiadomoscChat message = WiadomoscChat.builder()
+                .nadawca(null)
+                .projekt(projekt)
+                .tresc(content)
+                .build();
+
+        return chatRepository.save(message);
+    }
+
     public List<WiadomoscChat> getPublicMessages() {
         return chatRepository.findByProjektIsNullOrderByDataWyslaniaAsc();
     }

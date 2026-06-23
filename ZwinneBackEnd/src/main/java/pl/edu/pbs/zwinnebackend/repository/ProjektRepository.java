@@ -12,5 +12,7 @@ public interface ProjektRepository extends JpaRepository<Projekt, Long> {
     
     Page<Projekt> findByStudenciId(Long studentId, Pageable pageable);
     
+    java.util.List<Projekt> findByStudenciId(Long studentId);
+    
     Page<Projekt> findByNazwaContainingIgnoreCaseAndStudenciId(String nazwa, Long studentId, Pageable pageable);
 }

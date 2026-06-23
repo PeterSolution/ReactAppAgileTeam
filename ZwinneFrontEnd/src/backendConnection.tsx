@@ -14,6 +14,8 @@ export const ENDPOINTS = {
         search: (query: string) => `${BACKEND_URL}/api/projects/search?q=${encodeURIComponent(query)}`,
         delete: (id: number) => `${BACKEND_URL}/api/projects/${id}`,
         update: (id: number) => `${BACKEND_URL}/api/projects/${id}`,
+        getCalendar: () => `${BACKEND_URL}/api/projects/calendar`,
+        getStats: (projectId: number) => `${BACKEND_URL}/api/projects/${projectId}/stats`,
     },
     create: () => `${BACKEND_URL}/api/projects`,
     tasks: {
@@ -22,6 +24,9 @@ export const ENDPOINTS = {
         update: (taskId: number) => `${BACKEND_URL}/api/tasks/${taskId}`,
         delete: (taskId: number) => `${BACKEND_URL}/api/tasks/${taskId}`,
         assign: (taskId: number, studentId: number | null) => `${BACKEND_URL}/api/tasks/${taskId}/assign/${studentId || ""}`,
+        getComments: (taskId: number) => `${BACKEND_URL}/api/tasks/${taskId}/comments`,
+        addComment: (taskId: number) => `${BACKEND_URL}/api/tasks/${taskId}/comments`,
+        deleteComment: (commentId: number) => `${BACKEND_URL}/api/comments/${commentId}`,
     },
     students: {
         getAll: () => `${BACKEND_URL}/api/students`,

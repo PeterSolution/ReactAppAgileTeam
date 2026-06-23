@@ -21,8 +21,8 @@ public class WiadomoscChat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "nadawca_id", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = true)
+    @JoinColumn(name = "nadawca_id", nullable = true)
     private Uzytkownik nadawca;
 
     @ManyToOne(fetch = FetchType.LAZY)

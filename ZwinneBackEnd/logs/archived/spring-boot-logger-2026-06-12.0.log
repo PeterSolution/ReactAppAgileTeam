@@ -1,0 +1,2 @@
+2026-06-12 10:46:09 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2d13h54m38s16ms809µs700ns).
+2026-06-12 10:47:00 [http-nio-8080-exec-5] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT

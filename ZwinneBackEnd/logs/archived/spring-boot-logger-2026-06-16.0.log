@@ -1,0 +1,33 @@
+2026-06-16 12:07:24 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-06-16 12:07:24 [main] INFO  p.e.p.z.ZwinneBackEndApplication - Starting ZwinneBackEndApplication using Java 17.0.12 with PID 10452 (C:\ReactAppAgileTeam\ZwinneBackEnd\build\classes\java\main started by PIOTR in C:\ReactAppAgileTeam\ZwinneBackEnd)
+2026-06-16 12:07:24 [main] DEBUG p.e.p.z.ZwinneBackEndApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
+2026-06-16 12:07:24 [main] INFO  p.e.p.z.ZwinneBackEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-16 12:07:28 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-16 12:07:28 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 296 ms. Found 6 JPA repository interfaces.
+2026-06-16 12:07:32 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-16 12:07:32 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-06-16 12:07:32 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-16 12:07:32 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2026-06-16 12:07:33 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-16 12:07:33 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8653 ms
+2026-06-16 12:07:33 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-16 12:07:34 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-06-16 12:07:34 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-16 12:07:37 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-16 12:07:37 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-16 12:07:38 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4a4b288a
+2026-06-16 12:07:38 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-16 12:07:38 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-16 12:07:45 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-16 12:07:47 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-16 12:07:53 [main] DEBUG p.e.p.z.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2026-06-16 12:07:54 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-16 12:08:03 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-16 12:08:05 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3fc105dd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@35129b9e, org.springframework.security.web.context.SecurityContextHolderFilter@7c59f315, org.springframework.security.web.header.HeaderWriterFilter@c7008b4, org.springframework.web.filter.CorsFilter@2f4bc3ff, org.springframework.security.web.authentication.logout.LogoutFilter@4d37c996, pl.edu.pbs.zwinnebackend.security.JwtAuthenticationFilter@218fc40d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@32a541a8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5f113867, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2297c8bf, org.springframework.security.web.session.SessionManagementFilter@4a9b4d4e, org.springframework.security.web.access.ExceptionTranslationFilter@42718ebf, org.springframework.security.web.access.intercept.AuthorizationFilter@5a9a187b]
+2026-06-16 12:08:07 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-06-16 12:08:07 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-16 12:08:07 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2026-06-16 12:08:07 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4a571516]]
+2026-06-16 12:08:07 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2026-06-16 12:08:07 [main] INFO  p.e.p.z.ZwinneBackEndApplication - Started ZwinneBackEndApplication in 45.28 seconds (process running for 46.993)
+2026-06-16 12:09:07 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]

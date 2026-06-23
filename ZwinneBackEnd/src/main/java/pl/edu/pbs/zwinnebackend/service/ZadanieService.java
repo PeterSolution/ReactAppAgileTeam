@@ -1,15 +1,20 @@
 package pl.edu.pbs.zwinnebackend.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.edu.pbs.zwinnebackend.model.Projekt;
 import pl.edu.pbs.zwinnebackend.model.Rola;
 import pl.edu.pbs.zwinnebackend.model.Uzytkownik;
+import pl.edu.pbs.zwinnebackend.model.WiadomoscChat;
 import pl.edu.pbs.zwinnebackend.model.Zadanie;
 import pl.edu.pbs.zwinnebackend.repository.ProjektRepository;
 import pl.edu.pbs.zwinnebackend.repository.UzytkownikRepository;
 import pl.edu.pbs.zwinnebackend.repository.ZadanieRepository;
+import pl.edu.pbs.zwinnebackend.security.UserPrincipal;
 
 import java.util.List;
 
@@ -24,6 +29,12 @@ public class ZadanieService {
 
     @Autowired
     private UzytkownikRepository uzytkownikRepository;
+
+    @Autowired
+    private SimpMessagingTemplate messagingTemplate;
+
+    @Autowired
+    private ChatService chatService;
 
     public List<Zadanie> getTasksByProject(Long projectId) {
         if (!projektRepository.existsById(projectId)) {
@@ -53,9 +64,17 @@ public class ZadanieService {
     @Transactional
     public Zadanie updateTask(Long taskId, Zadanie details) {
         Zadanie zadanie = getTaskById(taskId);
+        
+        pl.edu.pbs.zwinnebackend.model.StatusZadania oldStatus = zadanie.getStatus();
+        pl.edu.pbs.zwinnebackend.model.StatusZadania newStatus = details.getStatus();
+        
         zadanie.setNazwa(details.getNazwa());
         zadanie.setOpis(details.getOpis());
-        zadanie.setStatus(details.getStatus());
+        zadanie.setStatus(newStatus);
+        
+        // Save deadline
+        zadanie.setDeadline(details.getDeadline());
+        
         if (details.getKolejnosc() != null) {
             zadanie.setKolejnosc(details.getKolejnosc());
         }
@@ -69,7 +88,42 @@ public class ZadanieService {
         } else {
             zadanie.setPrzypisanyStudent(null);
         }
-        return zadanieRepository.save(zadanie);
+        
+        Zadanie updatedTask = zadanieRepository.save(zadanie);
+        
+        // Send real-time notification if status has changed
+        if (oldStatus != newStatus) {
+            try {
+                Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+                Uzytkownik currentUser = null;
+                if (auth != null && auth.getPrincipal() instanceof UserPrincipal) {
+                    currentUser = ((UserPrincipal) auth.getPrincipal()).getUzytkownik();
+                }
+                
+                String userName = currentUser != null ? (currentUser.getImie() + " " + currentUser.getNazwisko()) : "Użytkownik";
+                
+                String action = "zmienił status";
+                if (newStatus == pl.edu.pbs.zwinnebackend.model.StatusZadania.DONE) {
+                    action = "ukończył zadanie";
+                } else if (newStatus == pl.edu.pbs.zwinnebackend.model.StatusZadania.IN_PROGRESS) {
+                    action = "rozpoczął zadanie";
+                } else if (newStatus == pl.edu.pbs.zwinnebackend.model.StatusZadania.TODO) {
+                    action = "cofnął zadanie";
+                }
+                
+                String systemMessageText = userName + " " + action + " \"" + updatedTask.getNazwa() + "\"";
+                
+                // Save message in the project's chat
+                WiadomoscChat systemMsg = chatService.saveSystemMessage(updatedTask.getProjekt().getId(), systemMessageText);
+                
+                // Broadcast through WebSocket
+                messagingTemplate.convertAndSend("/topic/project/" + updatedTask.getProjekt().getId(), systemMsg);
+            } catch (Exception ex) {
+                System.err.println("Błąd podczas wysyłania powiadomienia WebSocket: " + ex.getMessage());
+            }
+        }
+        
+        return updatedTask;
     }
 
     @Transactional

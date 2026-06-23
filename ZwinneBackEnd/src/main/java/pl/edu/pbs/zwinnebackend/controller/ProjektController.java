@@ -8,7 +8,11 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import pl.edu.pbs.zwinnebackend.model.Projekt;
+import pl.edu.pbs.zwinnebackend.model.Rola;
 import pl.edu.pbs.zwinnebackend.model.Uzytkownik;
+import pl.edu.pbs.zwinnebackend.model.Zadanie;
+import pl.edu.pbs.zwinnebackend.repository.ProjektRepository;
+import pl.edu.pbs.zwinnebackend.repository.ZadanieRepository;
 import pl.edu.pbs.zwinnebackend.security.UserPrincipal;
 import pl.edu.pbs.zwinnebackend.service.ProjektService;
 
@@ -23,6 +27,12 @@ public class ProjektController {
 
     @Autowired
     private ProjektService projektService;
+
+    @Autowired
+    private ZadanieRepository zadanieRepository;
+
+    @Autowired
+    private ProjektRepository projektRepository;
 
     @GetMapping
     public ResponseEntity<Page<Projekt>> getAllProjects(
@@ -102,5 +112,59 @@ public class ProjektController {
         response.put("success", true);
         response.put("message", "Student został usunięty z projektu.");
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/calendar")
+    public ResponseEntity<List<Map<String, Object>>> getCalendarData(@AuthenticationPrincipal UserPrincipal currentUser) {
+        boolean isLecturer = currentUser.getAuthorities().stream()
+                .anyMatch(a -> a.getAuthority().equals(Rola.ROLE_PROWADZACY.name()));
+                
+        List<Projekt> projects;
+        if (isLecturer) {
+            projects = projektRepository.findAll();
+        } else {
+            projects = projektRepository.findByStudenciId(currentUser.getId());
+        }
+        
+        List<Map<String, Object>> response = new java.util.ArrayList<>();
+        for (Projekt p : projects) {
+            Map<String, Object> projectMap = new HashMap<>();
+            projectMap.put("id", p.getId());
+            projectMap.put("nazwa", p.getNazwa());
+            projectMap.put("dataOddania", p.getDataOddania());
+            
+            List<Zadanie> tasks = zadanieRepository.findByProjektIdOrderByKolejnoscAsc(p.getId());
+            List<Map<String, Object>> tasksList = new java.util.ArrayList<>();
+            for (Zadanie t : tasks) {
+                Map<String, Object> taskMap = new HashMap<>();
+                taskMap.put("id", t.getId());
+                taskMap.put("nazwa", t.getNazwa());
+                taskMap.put("deadline", t.getDeadline());
+                taskMap.put("status", t.getStatus());
+                tasksList.add(taskMap);
+            }
+            projectMap.put("tasks", tasksList);
+            response.add(projectMap);
+        }
+        
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/{projectId}/stats")
+    public ResponseEntity<Map<String, Object>> getProjectStats(@PathVariable Long projectId) {
+        List<Zadanie> tasks = zadanieRepository.findByProjektIdOrderByKolejnoscAsc(projectId);
+        
+        long todo = tasks.stream().filter(t -> t.getStatus() == pl.edu.pbs.zwinnebackend.model.StatusZadania.TODO).count();
+        long inProgress = tasks.stream().filter(t -> t.getStatus() == pl.edu.pbs.zwinnebackend.model.StatusZadania.IN_PROGRESS).count();
+        long done = tasks.stream().filter(t -> t.getStatus() == pl.edu.pbs.zwinnebackend.model.StatusZadania.DONE).count();
+        long total = tasks.size();
+        
+        Map<String, Object> stats = new HashMap<>();
+        stats.put("total", total);
+        stats.put("todo", todo);
+        stats.put("inProgress", inProgress);
+        stats.put("done", done);
+        
+        return ResponseEntity.ok(stats);
     }
 }

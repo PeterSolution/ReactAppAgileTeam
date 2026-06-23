@@ -1,0 +1,272 @@
+.app-theme {
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Ciemny motyw (Dark Mode) */
+.app-theme.theme-dark {
+    background-color: #0b0f19;
+    color: #f3f4f6;
+}
+
+.app-theme.theme-dark .main-container {
+    color: #f3f4f6;
+}
+
+.app-theme.theme-dark .main-title {
+    color: #ffffff;
+}
+
+.app-theme.theme-dark .search-input {
+    background: #111827;
+    border-color: rgba(255,255,255,0.1);
+    color: #ffffff;
+}
+
+.app-theme.theme-dark .projects-table thead tr {
+    background: #1f2937;
+    border-bottom-color: rgba(255,255,255,0.1);
+}
+
+.app-theme.theme-dark .projects-table th {
+    color: #d1d5db;
+}
+
+.app-theme.theme-dark .projects-table tbody tr {
+    border-bottom-color: rgba(255,255,255,0.05);
+}
+
+.app-theme.theme-dark .projects-table tbody tr:hover {
+    background: rgba(255,255,255,0.02);
+}
+
+.app-theme.theme-dark .projects-table td {
+    color: #d1d5db;
+}
+
+.app-theme.theme-dark .td-name {
+    color: #ffffff;
+}
+
+.app-theme.theme-dark .td-desc {
+    color: #9ca3af;
+}
+
+.app-theme.theme-dark .table-wrapper {
+    border-color: rgba(255,255,255,0.08);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.app-theme.theme-dark .top-bar {
+    background-color: #111827;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.app-theme.theme-dark .top-link {
+    color: #d1d5db;
+}
+
+.app-theme.theme-dark .top-link:hover {
+    background-color: rgba(255,255,255,0.05);
+    color: #ffffff;
+}
+
+.app-theme.theme-dark .logout-btn {
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #fca5a5;
+    background-color: rgba(239, 68, 68, 0.05);
+}
+
+.app-theme.theme-dark .logout-btn:hover {
+    background-color: rgba(239, 68, 68, 0.15);
+}
+
+/* Strona studentów w ciemnym motywie */
+.app-theme.theme-dark .st-container {
+    color: #f3f4f6;
+}
+
+.app-theme.theme-dark .st-title {
+    color: #ffffff;
+}
+
+.app-theme.theme-dark .st-card {
+    background: #111827;
+    border-color: rgba(255,255,255,0.08);
+}
+
+.app-theme.theme-dark .st-table thead tr {
+    background: #1f2937;
+}
+
+.app-theme.theme-dark .st-table th {
+    color: #d1d5db;
+}
+
+.app-theme.theme-dark .st-table tbody tr {
+    border-bottom-color: rgba(255,255,255,0.05);
+}
+
+.app-theme.theme-dark .st-table tbody tr:hover {
+    background: rgba(255,255,255,0.02);
+}
+
+.app-theme.theme-dark .st-table td {
+    color: #d1d5db;
+}
+
+/* Jasny motyw (Light Mode) */
+.app-theme.theme-light {
+    background-color: #f3f4f6;
+    color: #111827;
+}
+
+.app-theme.theme-light .tp-container {
+    color: #111827;
+}
+
+.app-theme.theme-light .tp-header {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.1);
+}
+
+.app-theme.theme-light .tp-project-info h1 {
+    background: linear-gradient(135deg, #1d4ed8, #6d28d9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.app-theme.theme-light .tp-project-desc {
+    color: #4b5563;
+}
+
+.app-theme.theme-light .tp-project-meta {
+    color: #6b7280;
+}
+
+.app-theme.theme-light .tp-project-meta span strong {
+    color: #1f2937;
+}
+
+.app-theme.theme-light .tp-back-btn {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.1);
+    color: #4b5563;
+}
+
+.app-theme.theme-light .tp-back-btn:hover {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.app-theme.theme-light .tp-column {
+    background: #e5e7eb;
+    border-color: rgba(0,0,0,0.05);
+}
+
+.app-theme.theme-light .tp-column-header {
+    border-bottom-color: rgba(0,0,0,0.1);
+}
+
+.app-theme.theme-light .tp-task-count {
+    background: rgba(0, 0, 0, 0.05);
+    color: #4b5563;
+}
+
+.app-theme.theme-light .tp-task-card {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.06);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.app-theme.theme-light .tp-task-card:hover {
+    background: #f9fafb;
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.app-theme.theme-light .tp-task-title {
+    color: #111827;
+}
+
+.app-theme.theme-light .tp-task-desc {
+    color: #4b5563;
+}
+
+.app-theme.theme-light .tp-task-footer {
+    border-top-color: rgba(0,0,0,0.06);
+}
+
+.app-theme.theme-light .tp-task-btn {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.1);
+    color: #4b5563;
+}
+
+.app-theme.theme-light .tp-task-btn:hover {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.app-theme.theme-light .tp-section-card {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.08);
+}
+
+.app-theme.theme-light .tp-file-item {
+    background: #f9fafb;
+    border-color: rgba(0,0,0,0.05);
+}
+
+.app-theme.theme-light .tp-file-name {
+    color: #1f2937;
+}
+
+.app-theme.theme-light .tp-chat-container {
+    background: #f9fafb;
+    border-color: rgba(0,0,0,0.08);
+}
+
+.app-theme.theme-light .tp-message-bubble {
+    background: #f3f4f6;
+    border-color: rgba(0,0,0,0.05);
+    color: #1f2937;
+}
+
+.app-theme.theme-light .tp-message-self .tp-message-bubble {
+    background: #dbeafe;
+    border-color: rgba(59, 130, 246, 0.2);
+    color: #1e3a8a;
+}
+
+.app-theme.theme-light .tp-chat-input-area {
+    border-top-color: rgba(0,0,0,0.08);
+}
+
+.app-theme.theme-light .tp-chat-input {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.12);
+    color: #111827;
+}
+
+.app-theme.theme-light .tp-chat-send {
+    background: #3b82f6;
+}
+
+.app-theme.theme-light .tp-modal-content {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.15);
+    color: #111827;
+}
+
+.app-theme.theme-light .ep-input, 
+.app-theme.theme-light .ep-textarea, 
+.app-theme.theme-light .ep-select {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.15);
+    color: #111827;
+}
+
+.app-theme.theme-light .ep-label {
+    color: #4b5563;
+}

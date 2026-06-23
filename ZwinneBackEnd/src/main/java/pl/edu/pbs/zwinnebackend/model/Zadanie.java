@@ -48,6 +48,8 @@ public class Zadanie {
     @JoinColumn(name = "przypisany_student_id")
     private Uzytkownik przypisanyStudent;
 
+    private java.time.LocalDate deadline;
+
     @PrePersist
     protected void onCreate() {
         dataUtworzenia = LocalDateTime.now();
