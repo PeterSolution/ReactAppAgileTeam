@@ -9,11 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.edu.pbs.zwinnebackend.model.Projekt;
-import pl.edu.pbs.zwinnebackend.model.Rola;
-import pl.edu.pbs.zwinnebackend.model.Uzytkownik;
-import pl.edu.pbs.zwinnebackend.repository.ProjektRepository;
-import pl.edu.pbs.zwinnebackend.repository.UzytkownikRepository;
+import pl.edu.pbs.zwinnebackend.model.*;
+import pl.edu.pbs.zwinnebackend.repository.*;
 import pl.edu.pbs.zwinnebackend.security.UserPrincipal;
 
 @Service
@@ -24,6 +21,21 @@ public class ProjektService {
 
     @Autowired
     private UzytkownikRepository uzytkownikRepository;
+
+    @Autowired
+    private ZadanieRepository zadanieRepository;
+
+    @Autowired
+    private KomentarzRepository komentarzRepository;
+
+    @Autowired
+    private WiadomoscChatRepository wiadomoscChatRepository;
+
+    @Autowired
+    private PlikMetadaneRepository plikMetadaneRepository;
+
+    @Autowired
+    private FileStorageService fileStorageService;
 
 
 
@@ -71,6 +83,32 @@ public class ProjektService {
     @Transactional
     public void deleteProject(Long id) {
         Projekt projekt = getProjectById(id);
+        
+        // 1. Delete associated files (metadata + physical files on disk)
+        List<PlikMetadane> files = plikMetadaneRepository.findByProjektId(id);
+        for (PlikMetadane file : files) {
+            fileStorageService.deleteFile(file.getId());
+        }
+        
+        // 2. Delete comments for all tasks of this project
+        List<Zadanie> tasks = zadanieRepository.findByProjektId(id);
+        for (Zadanie task : tasks) {
+            List<Komentarz> comments = komentarzRepository.findByZadanieIdOrderByDataUtworzeniaAsc(task.getId());
+            komentarzRepository.deleteAll(comments);
+        }
+        
+        // 3. Delete tasks
+        zadanieRepository.deleteAll(tasks);
+        
+        // 4. Delete chat messages
+        List<WiadomoscChat> chatMessages = wiadomoscChatRepository.findByProjektIdOrderByDataWyslaniaAsc(id);
+        wiadomoscChatRepository.deleteAll(chatMessages);
+        
+        // 5. Clear project student assignments to clean up the join table
+        projekt.getStudenci().clear();
+        projektRepository.save(projekt);
+        
+        // 6. Finally delete the project itself
         projektRepository.delete(projekt);
     }
 

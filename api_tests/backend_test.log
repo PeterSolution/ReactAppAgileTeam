@@ -1,0 +1,205 @@
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/C:/Users/PIOTR/.gradle/wrapper/dists/gradle-8.5-bin/5t9huq95ubn472n8rpzujfbqh/gradle-8.5/lib/native-platform-0.22-milestone-25.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :resolveMainClassName UP-TO-DATE
+
+> Task :bootRun
+18:47:51,489 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version 1.5.6
+18:47:51,496 |-INFO in ch.qos.logback.classic.util.ContextInitializer@3cdf2c61 - Here is a list of configurators discovered as a service, by rank: 
+18:47:51,496 |-INFO in ch.qos.logback.classic.util.ContextInitializer@3cdf2c61 -   org.springframework.boot.logging.logback.RootLogLevelConfigurator
+18:47:51,496 |-INFO in ch.qos.logback.classic.util.ContextInitializer@3cdf2c61 - They will be invoked in order until ExecutionStatus.DO_NOT_INVOKE_NEXT_IF_ANY is returned.
+18:47:51,496 |-INFO in ch.qos.logback.classic.util.ContextInitializer@3cdf2c61 - Constructed configurator of type class org.springframework.boot.logging.logback.RootLogLevelConfigurator
+18:47:51,519 |-INFO in ch.qos.logback.classic.util.ContextInitializer@3cdf2c61 - org.springframework.boot.logging.logback.RootLogLevelConfigurator.configure() call lasted 1 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+18:47:51,519 |-INFO in ch.qos.logback.classic.util.ContextInitializer@3cdf2c61 - Trying to configure with ch.qos.logback.classic.joran.SerializedModelConfigurator
+18:47:51,520 |-INFO in ch.qos.logback.classic.util.ContextInitializer@3cdf2c61 - Constructed configurator of type class ch.qos.logback.classic.joran.SerializedModelConfigurator
+18:47:51,527 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.scmo]
+18:47:51,528 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.scmo]
+18:47:51,528 |-INFO in ch.qos.logback.classic.util.ContextInitializer@3cdf2c61 - ch.qos.logback.classic.joran.SerializedModelConfigurator.configure() call lasted 8 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+18:47:51,528 |-INFO in ch.qos.logback.classic.util.ContextInitializer@3cdf2c61 - Trying to configure with ch.qos.logback.classic.util.DefaultJoranConfigurator
+18:47:51,529 |-INFO in ch.qos.logback.classic.util.ContextInitializer@3cdf2c61 - Constructed configurator of type class ch.qos.logback.classic.util.DefaultJoranConfigurator
+18:47:51,530 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+18:47:51,531 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.xml]
+18:47:51,531 |-INFO in ch.qos.logback.classic.util.ContextInitializer@3cdf2c61 - ch.qos.logback.classic.util.DefaultJoranConfigurator.configure() call lasted 2 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+18:47:51,531 |-INFO in ch.qos.logback.classic.util.ContextInitializer@3cdf2c61 - Trying to configure with ch.qos.logback.classic.BasicConfigurator
+18:47:51,533 |-INFO in ch.qos.logback.classic.util.ContextInitializer@3cdf2c61 - Constructed configurator of type class ch.qos.logback.classic.BasicConfigurator
+18:47:51,533 |-INFO in ch.qos.logback.classic.BasicConfigurator@13ad5cd3 - Setting up default configuration.
+18:47:51,567 |-INFO in ch.qos.logback.classic.util.ContextInitializer@3cdf2c61 - ch.qos.logback.classic.BasicConfigurator.configure() call lasted 34 milliseconds. ExecutionStatus=NEUTRAL
+18:47:52,368 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [Console]
+18:47:52,368 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+18:47:52,403 |-WARN in ch.qos.logback.core.ConsoleAppender[Console] - This appender no longer admits a layout as a sub-component, set an encoder instead.
+18:47:52,403 |-WARN in ch.qos.logback.core.ConsoleAppender[Console] - To ensure compatibility, wrapping your layout in LayoutWrappingEncoder.
+18:47:52,403 |-WARN in ch.qos.logback.core.ConsoleAppender[Console] - See also http://logback.qos.ch/codes.html#layoutInsteadOfEncoder for details
+18:47:52,403 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RollingFile]
+18:47:52,403 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+18:47:52,422 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@473153915 - No compression will be used
+18:47:52,423 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@473153915 - Will use the pattern ./logs/archived/spring-boot-logger-%d{yyyy-MM-dd}.%i.log for the active file
+18:47:52,454 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@5bf0fe62 - The date pattern is 'yyyy-MM-dd' from file name pattern './logs/archived/spring-boot-logger-%d{yyyy-MM-dd}.%i.log'.
+18:47:52,454 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@5bf0fe62 - Roll-over at midnight.
+18:47:52,464 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@5bf0fe62 - Setting initial period to 2026-06-28T16:47:13.224Z
+18:47:52,464 |-WARN in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@5bf0fe62 - SizeAndTimeBasedFNATP is deprecated. Use SizeAndTimeBasedRollingPolicy instead
+18:47:52,464 |-WARN in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@5bf0fe62 - For more information see http://logback.qos.ch/manual/appenders.html#SizeAndTimeBasedRollingPolicy
+18:47:52,474 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[RollingFile] - Active log file name: ./logs/spring-boot-logger.log
+18:47:52,474 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[RollingFile] - File property is set to [./logs/spring-boot-logger.log]
+18:47:52,477 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to INFO
+18:47:52,477 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@1e097d59 - Propagating INFO level on Logger[ROOT] onto the JUL framework
+18:47:52,479 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RollingFile] to Logger[ROOT]
+18:47:52,479 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [Console] to Logger[ROOT]
+18:47:52,479 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [pl.edu.pbs.zwinnebackend] to DEBUG
+18:47:52,479 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@1e097d59 - Propagating DEBUG level on Logger[pl.edu.pbs.zwinnebackend] onto the JUL framework
+18:47:52,482 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [pl.edu.pbs.zwinnebackend] to false
+18:47:52,482 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RollingFile] to Logger[pl.edu.pbs.zwinnebackend]
+18:47:52,482 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [Console] to Logger[pl.edu.pbs.zwinnebackend]
+18:47:52,482 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@673be18f - End of configuration.
+18:47:52,482 |-INFO in org.springframework.boot.logging.logback.SpringBootJoranConfigurator@6581dc0a - Registering current configuration as safe fallback point
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.0)
+
+2026-06-28 18:47:52 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-06-28 18:47:52 [main] INFO  p.e.p.z.ZwinneBackEndApplication - Starting ZwinneBackEndApplication using Java 17.0.12 with PID 764 (C:\ReactAppAgileTeam\ZwinneBackEnd\build\classes\java\main started by PIOTR in C:\ReactAppAgileTeam\ZwinneBackEnd)
+2026-06-28 18:47:52 [main] DEBUG p.e.p.z.ZwinneBackEndApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
+2026-06-28 18:47:52 [main] INFO  p.e.p.z.ZwinneBackEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-28 18:47:54 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-28 18:47:54 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 202 ms. Found 7 JPA repository interfaces.
+2026-06-28 18:47:55 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-28 18:47:55 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-06-28 18:47:55 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-28 18:47:55 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2026-06-28 18:47:55 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-28 18:47:55 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2766 ms
+2026-06-28 18:47:55 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-28 18:47:55 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-06-28 18:47:55 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-28 18:47:56 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-28 18:47:56 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-28 18:47:56 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@ba562e0
+2026-06-28 18:47:56 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-28 18:47:56 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-28 18:47:59 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: alter table if exists komentarz_zadania alter column tresc set data type TEXT
+Hibernate: alter table if exists projekt alter column opis set data type TEXT
+Hibernate: alter table if exists zadanie alter column opis set data type TEXT
+2026-06-28 18:47:59 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-28 18:47:59 [main] DEBUG p.e.p.z.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2026-06-28 18:47:59 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-28 18:48:00 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-28 18:48:01 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@52984065, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6dd59886, org.springframework.security.web.context.SecurityContextHolderFilter@4c7d19bf, org.springframework.security.web.header.HeaderWriterFilter@19c578bf, org.springframework.web.filter.CorsFilter@65a7bc80, org.springframework.security.web.authentication.logout.LogoutFilter@27ea7c8f, pl.edu.pbs.zwinnebackend.security.JwtAuthenticationFilter@54d9b23a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3be60847, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4505ec36, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5b132063, org.springframework.security.web.session.SessionManagementFilter@5367d46f, org.springframework.security.web.access.ExceptionTranslationFilter@5a8d03ce, org.springframework.security.web.access.intercept.AuthorizationFilter@e763080]
+2026-06-28 18:48:01 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-06-28 18:48:01 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-28 18:48:01 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2026-06-28 18:48:01 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@5a1ddc7c]]
+2026-06-28 18:48:01 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2026-06-28 18:48:01 [main] INFO  p.e.p.z.ZwinneBackEndApplication - Started ZwinneBackEndApplication in 9.755 seconds (process running for 10.421)
+2026-06-28 18:48:01 [main] INFO  p.e.p.z.c.DatabaseMigrationConfig - Running database migration: dropping NOT NULL constraint on wiadomosc_chat.nadawca_id
+2026-06-28 18:48:01 [main] INFO  p.e.p.z.c.DatabaseMigrationConfig - Database migration completed successfully.
+2026-06-28 18:48:02 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-28 18:48:02 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-28 18:48:02 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-06-28 18:48:02 [http-nio-8080-exec-2] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostêp: Full authentication is required to access this resource
+2026-06-28 18:48:02 [http-nio-8080-exec-2] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostêp: Full authentication is required to access this resource
+Hibernate: select u1_0.id from uzytkownik u1_0 where u1_0.email=? fetch first ? rows only
+Hibernate: insert into uzytkownik (email,forma_studiow,imie,nazwisko,nr_indeksu,password_hash,rola) values (?,?,?,?,?,?,?) returning id
+Hibernate: select u1_0.id from uzytkownik u1_0 where u1_0.email=? fetch first ? rows only
+Hibernate: insert into uzytkownik (email,forma_studiow,imie,nazwisko,nr_indeksu,password_hash,rola) values (?,?,?,?,?,?,?) returning id
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.email=?
+Hibernate: select rt1_0.id,rt1_0.data_wygasniecia,rt1_0.token,rt1_0.uzytkownik_id from refresh_token rt1_0 where rt1_0.uzytkownik_id=?
+Hibernate: insert into refresh_token (data_wygasniecia,token,uzytkownik_id) values (?,?,?) returning id
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.email=?
+Hibernate: select rt1_0.id,rt1_0.data_wygasniecia,rt1_0.token,rt1_0.uzytkownik_id from refresh_token rt1_0 where rt1_0.uzytkownik_id=?
+Hibernate: insert into refresh_token (data_wygasniecia,token,uzytkownik_id) values (?,?,?) returning id
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.rola=?
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.id=?
+Hibernate: insert into projekt (data_oddania,nazwa,opis,utworzony,zmodyfikowany) values (?,?,?,?,?) returning id
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.id=?
+Hibernate: select p1_0.id,p1_0.data_oddania,p1_0.nazwa,p1_0.opis,p1_0.utworzony,p1_0.zmodyfikowany from projekt p1_0 where p1_0.id=?
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.id=?
+Hibernate: select s1_0.projekt_id,s1_1.id,s1_1.email,s1_1.forma_studiow,s1_1.imie,s1_1.nazwisko,s1_1.nr_indeksu,s1_1.password_hash,s1_1.rola from projekt_student s1_0 join uzytkownik s1_1 on s1_1.id=s1_0.student_id where s1_0.projekt_id=?
+Hibernate: insert into projekt_student (projekt_id,student_id) values (?,?)
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.id=?
+Hibernate: select p1_0.id,p1_0.data_oddania,p1_0.nazwa,p1_0.opis,p1_0.utworzony,p1_0.zmodyfikowany from projekt p1_0 left join projekt_student s1_0 on p1_0.id=s1_0.projekt_id where s1_0.student_id=? order by p1_0.utworzony desc offset ? rows fetch first ? rows only
+2026-06-28 18:48:04 [http-nio-8080-exec-8] WARN  o.s.d.w.c.SpringDataJacksonConfiguration$PageModule$PlainPageSerializationWarning - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+Hibernate: select s1_0.projekt_id,s1_1.id,s1_1.email,s1_1.forma_studiow,s1_1.imie,s1_1.nazwisko,s1_1.nr_indeksu,s1_1.password_hash,s1_1.rola from projekt_student s1_0 join uzytkownik s1_1 on s1_1.id=s1_0.student_id where s1_0.projekt_id=?
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.id=?
+Hibernate: select p1_0.id,p1_0.data_oddania,p1_0.nazwa,p1_0.opis,p1_0.utworzony,p1_0.zmodyfikowany from projekt p1_0 where p1_0.id=?
+Hibernate: select z1_0.id,z1_0.data_utworzenia,z1_0.deadline,z1_0.kolejnosc,z1_0.nazwa,z1_0.opis,z1_0.projekt_id,z1_0.przypisany_student_id,z1_0.status from zadanie z1_0 where z1_0.projekt_id=?
+Hibernate: insert into zadanie (data_utworzenia,deadline,kolejnosc,nazwa,opis,projekt_id,przypisany_student_id,status) values (?,?,?,?,?,?,?,?) returning id
+Hibernate: select s1_0.projekt_id,s1_1.id,s1_1.email,s1_1.forma_studiow,s1_1.imie,s1_1.nazwisko,s1_1.nr_indeksu,s1_1.password_hash,s1_1.rola from projekt_student s1_0 join uzytkownik s1_1 on s1_1.id=s1_0.student_id where s1_0.projekt_id=?
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.id=?
+Hibernate: select z1_0.id,z1_0.data_utworzenia,z1_0.deadline,z1_0.kolejnosc,z1_0.nazwa,z1_0.opis,z1_0.projekt_id,z1_0.przypisany_student_id,z1_0.status from zadanie z1_0 where z1_0.id=?
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.id=?
+Hibernate: update zadanie set deadline=?,kolejnosc=?,nazwa=?,opis=?,projekt_id=?,przypisany_student_id=?,status=? where id=?
+Hibernate: select p1_0.id,p1_0.data_oddania,p1_0.nazwa,p1_0.opis,p1_0.utworzony,p1_0.zmodyfikowany from projekt p1_0 where p1_0.id=?
+Hibernate: select s1_0.projekt_id,s1_1.id,s1_1.email,s1_1.forma_studiow,s1_1.imie,s1_1.nazwisko,s1_1.nr_indeksu,s1_1.password_hash,s1_1.rola from projekt_student s1_0 join uzytkownik s1_1 on s1_1.id=s1_0.student_id where s1_0.projekt_id=?
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.id=?
+Hibernate: select z1_0.id,z1_0.data_utworzenia,z1_0.deadline,z1_0.kolejnosc,z1_0.nazwa,z1_0.opis,z1_0.projekt_id,z1_0.przypisany_student_id,z1_0.status from zadanie z1_0 where z1_0.id=?
+Hibernate: select p1_0.id,p1_0.data_oddania,p1_0.nazwa,p1_0.opis,p1_0.utworzony,p1_0.zmodyfikowany from projekt p1_0 where p1_0.id=?
+Hibernate: insert into wiadomosc_chat (data_wyslania,nadawca_id,projekt_id,tresc) values (?,?,?,?) returning id
+Hibernate: select s1_0.projekt_id,s1_1.id,s1_1.email,s1_1.forma_studiow,s1_1.imie,s1_1.nazwisko,s1_1.nr_indeksu,s1_1.password_hash,s1_1.rola from projekt_student s1_0 join uzytkownik s1_1 on s1_1.id=s1_0.student_id where s1_0.projekt_id=?
+Hibernate: update zadanie set deadline=?,kolejnosc=?,nazwa=?,opis=?,projekt_id=?,przypisany_student_id=?,status=? where id=?
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.id=?
+Hibernate: select z1_0.id,z1_0.data_utworzenia,z1_0.deadline,z1_0.kolejnosc,z1_0.nazwa,z1_0.opis,z1_0.projekt_id,z1_0.przypisany_student_id,z1_0.status from zadanie z1_0 where z1_0.id=?
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.id=?
+Hibernate: insert into komentarz_zadania (autor_id,data_utworzenia,tresc,zadanie_id) values (?,?,?,?) returning id
+Hibernate: select p1_0.id,p1_0.data_oddania,p1_0.nazwa,p1_0.opis,p1_0.utworzony,p1_0.zmodyfikowany from projekt p1_0 where p1_0.id=?
+Hibernate: select s1_0.projekt_id,s1_1.id,s1_1.email,s1_1.forma_studiow,s1_1.imie,s1_1.nazwisko,s1_1.nr_indeksu,s1_1.password_hash,s1_1.rola from projekt_student s1_0 join uzytkownik s1_1 on s1_1.id=s1_0.student_id where s1_0.projekt_id=?
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.id=?
+Hibernate: select k1_0.id,k1_0.autor_id,k1_0.data_utworzenia,k1_0.tresc,k1_0.zadanie_id from komentarz_zadania k1_0 where k1_0.zadanie_id=? order by k1_0.data_utworzenia
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.id=?
+Hibernate: select z1_0.id,z1_0.data_utworzenia,z1_0.deadline,z1_0.kolejnosc,z1_0.nazwa,z1_0.opis,z1_0.projekt_id,z1_0.przypisany_student_id,z1_0.status from zadanie z1_0 where z1_0.id=?
+Hibernate: select p1_0.id,p1_0.data_oddania,p1_0.nazwa,p1_0.opis,p1_0.utworzony,p1_0.zmodyfikowany from projekt p1_0 where p1_0.id=?
+Hibernate: select s1_0.projekt_id,s1_1.id,s1_1.email,s1_1.forma_studiow,s1_1.imie,s1_1.nazwisko,s1_1.nr_indeksu,s1_1.password_hash,s1_1.rola from projekt_student s1_0 join uzytkownik s1_1 on s1_1.id=s1_0.student_id where s1_0.projekt_id=?
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.id=?
+Hibernate: select p1_0.id,p1_0.data_oddania,p1_0.nazwa,p1_0.opis,p1_0.utworzony,p1_0.zmodyfikowany from projekt p1_0 where p1_0.id=?
+Hibernate: select z1_0.id,z1_0.data_utworzenia,z1_0.deadline,z1_0.kolejnosc,z1_0.nazwa,z1_0.opis,z1_0.projekt_id,z1_0.przypisany_student_id,z1_0.status from zadanie z1_0 where z1_0.id=?
+Hibernate: insert into plik_metadane (data_przeslania,nazwa_pliku,projekt_id,przeslany_przez_id,rozmiar,sciezka_pliku,typ_pliku,zadanie_id) values (?,?,?,?,?,?,?,?) returning id
+Hibernate: select s1_0.projekt_id,s1_1.id,s1_1.email,s1_1.forma_studiow,s1_1.imie,s1_1.nazwisko,s1_1.nr_indeksu,s1_1.password_hash,s1_1.rola from projekt_student s1_0 join uzytkownik s1_1 on s1_1.id=s1_0.student_id where s1_0.projekt_id=?
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.id=?
+Hibernate: select pm1_0.id,pm1_0.data_przeslania,pm1_0.nazwa_pliku,pm1_0.projekt_id,pm1_0.przeslany_przez_id,pm1_0.rozmiar,pm1_0.sciezka_pliku,pm1_0.typ_pliku,pm1_0.zadanie_id from plik_metadane pm1_0 where pm1_0.id=?
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.id=?
+Hibernate: select pm1_0.id,pm1_0.data_przeslania,pm1_0.nazwa_pliku,pm1_0.projekt_id,pm1_0.przeslany_przez_id,pm1_0.rozmiar,pm1_0.sciezka_pliku,pm1_0.typ_pliku,pm1_0.zadanie_id from plik_metadane pm1_0 where pm1_0.id=?
+Hibernate: delete from plik_metadane where id=?
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.id=?
+Hibernate: select p1_0.id,p1_0.data_oddania,p1_0.nazwa,p1_0.opis,p1_0.utworzony,p1_0.zmodyfikowany from projekt p1_0 where p1_0.id=?
+Hibernate: select pm1_0.id,pm1_0.data_przeslania,pm1_0.nazwa_pliku,pm1_0.projekt_id,pm1_0.przeslany_przez_id,pm1_0.rozmiar,pm1_0.sciezka_pliku,pm1_0.typ_pliku,pm1_0.zadanie_id from plik_metadane pm1_0 where pm1_0.projekt_id=?
+Hibernate: select z1_0.id,z1_0.data_utworzenia,z1_0.deadline,z1_0.kolejnosc,z1_0.nazwa,z1_0.opis,z1_0.projekt_id,z1_0.przypisany_student_id,z1_0.status from zadanie z1_0 where z1_0.projekt_id=?
+Hibernate: select k1_0.id,k1_0.autor_id,k1_0.data_utworzenia,k1_0.tresc,k1_0.zadanie_id from komentarz_zadania k1_0 where k1_0.zadanie_id=? order by k1_0.data_utworzenia
+Hibernate: select u1_0.id,u1_0.email,u1_0.forma_studiow,u1_0.imie,u1_0.nazwisko,u1_0.nr_indeksu,u1_0.password_hash,u1_0.rola from uzytkownik u1_0 where u1_0.id=?
+Hibernate: select wc1_0.id,wc1_0.data_wyslania,wc1_0.nadawca_id,wc1_0.projekt_id,wc1_0.tresc from wiadomosc_chat wc1_0 where wc1_0.projekt_id=? order by wc1_0.data_wyslania
+Hibernate: select s1_0.projekt_id,s1_1.id,s1_1.email,s1_1.forma_studiow,s1_1.imie,s1_1.nazwisko,s1_1.nr_indeksu,s1_1.password_hash,s1_1.rola from projekt_student s1_0 join uzytkownik s1_1 on s1_1.id=s1_0.student_id where s1_0.projekt_id=?
+Hibernate: delete from projekt_student where projekt_id=?
+Hibernate: delete from komentarz_zadania where id=?
+Hibernate: delete from zadanie where id=?
+Hibernate: delete from wiadomosc_chat where id=?
+Hibernate: delete from projekt where id=?
+
+> Task :bootRun FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':bootRun'.
+> Process 'command 'C:\Program Files\Java\jdk-17\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 18s
+4 actionable tasks: 1 executed, 3 up-to-date

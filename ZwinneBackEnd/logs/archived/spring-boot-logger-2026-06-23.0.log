@@ -1,0 +1,112 @@
+2026-06-23 09:04:51 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=13h37m40s621ms233µs700ns).
+2026-06-23 09:06:02 [http-nio-8080-exec-1] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
+2026-06-23 09:06:02 [http-nio-8080-exec-3] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
+2026-06-23 09:06:02 [http-nio-8080-exec-3] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostęp: Full authentication is required to access this resource
+2026-06-23 09:06:03 [http-nio-8080-exec-3] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostęp: Full authentication is required to access this resource
+2026-06-23 09:06:32 [MessageBroker-2] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 4 total, 0 closed abnormally (0 connect failure, 0 send limit, 1 transport error)], stompSubProtocol[processed CONNECT(4)-CONNECTED(4)-DISCONNECT(1)], stompBrokerRelay[null], inboundChannel[pool size = 6, active threads = 0, queued tasks = 0, completed tasks = 36], outboundChannel[pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 8], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 0, completed tasks = 2]
+2026-06-23 09:36:32 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 4 total, 0 closed abnormally (0 connect failure, 0 send limit, 1 transport error)], stompSubProtocol[processed CONNECT(4)-CONNECTED(4)-DISCONNECT(1)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 36], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 8], sockJsScheduler[pool size = 4, active threads = 1, queued tasks = 0, completed tasks = 3]
+2026-06-23 10:07:45 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=22m41s618ms317µs300ns).
+2026-06-23 10:13:01 [http-nio-8080-exec-9] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
+2026-06-23 10:13:01 [http-nio-8080-exec-9] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostęp: Full authentication is required to access this resource
+2026-06-23 10:13:01 [http-nio-8080-exec-7] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
+2026-06-23 10:13:01 [http-nio-8080-exec-9] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostęp: Full authentication is required to access this resource
+2026-06-23 10:22:50 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-06-23 10:22:50 [main] INFO  p.e.p.z.ZwinneBackEndApplication - Starting ZwinneBackEndApplication using Java 17.0.12 with PID 13940 (C:\ReactAppAgileTeam\ZwinneBackEnd\build\classes\java\main started by PIOTR in C:\ReactAppAgileTeam\ZwinneBackEnd)
+2026-06-23 10:22:50 [main] DEBUG p.e.p.z.ZwinneBackEndApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
+2026-06-23 10:22:50 [main] INFO  p.e.p.z.ZwinneBackEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-23 10:22:53 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23 10:22:53 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 224 ms. Found 7 JPA repository interfaces.
+2026-06-23 10:22:55 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-23 10:22:55 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-06-23 10:22:55 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-23 10:22:55 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2026-06-23 10:22:55 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-23 10:22:55 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5274 ms
+2026-06-23 10:22:56 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23 10:22:56 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-06-23 10:22:56 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-23 10:22:57 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23 10:22:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-23 10:22:57 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3f6f9cef
+2026-06-23 10:22:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-23 10:22:58 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23 10:23:02 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23 10:23:02 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23 10:23:03 [main] DEBUG p.e.p.z.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2026-06-23 10:23:03 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23 10:23:04 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23 10:23:05 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@65a7bc80, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5b132063, org.springframework.security.web.context.SecurityContextHolderFilter@3be60847, org.springframework.security.web.header.HeaderWriterFilter@2cca7d3c, org.springframework.web.filter.CorsFilter@4b98c80c, org.springframework.security.web.authentication.logout.LogoutFilter@1e3c4c12, pl.edu.pbs.zwinnebackend.security.JwtAuthenticationFilter@6de2344a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3dfe2797, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7b23aea2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@a486851, org.springframework.security.web.session.SessionManagementFilter@564e9c0b, org.springframework.security.web.access.ExceptionTranslationFilter@19c578bf, org.springframework.security.web.access.intercept.AuthorizationFilter@599cf2cd]
+2026-06-23 10:23:06 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-06-23 10:23:06 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-23 10:23:06 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2026-06-23 10:23:06 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@11e36e5c]]
+2026-06-23 10:23:06 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2026-06-23 10:23:06 [main] INFO  p.e.p.z.ZwinneBackEndApplication - Started ZwinneBackEndApplication in 17.473 seconds (process running for 18.495)
+2026-06-23 10:23:06 [main] INFO  p.e.p.z.c.DatabaseMigrationConfig - Running database migration: dropping NOT NULL constraint on wiadomosc_chat.nadawca_id
+2026-06-23 10:23:06 [main] INFO  p.e.p.z.c.DatabaseMigrationConfig - Database migration completed successfully.
+2026-06-23 10:23:09 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-23 10:23:09 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-23 10:23:09 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-06-23 10:23:32 [http-nio-8080-exec-9] WARN  o.s.d.w.c.SpringDataJacksonConfiguration$PageModule$PlainPageSerializationWarning - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-06-23 10:23:44 [http-nio-8080-exec-5] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 10:24:06 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 6, active threads = 0, queued tasks = 0, completed tasks = 6], outboundChannel[pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2026-06-23 10:24:35 [http-nio-8080-exec-9] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 10:25:08 [http-nio-8080-exec-5] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 10:27:43 [http-nio-8080-exec-2] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 10:27:58 [http-nio-8080-exec-1] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 10:31:33 [http-nio-8080-exec-7] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 10:32:54 [http-nio-8080-exec-2] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 10:32:58 [http-nio-8080-exec-10] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 10:33:04 [http-nio-8080-exec-7] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 10:35:54 [http-nio-8080-exec-10] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 10:36:32 [http-nio-8080-exec-6] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 10:36:43 [http-nio-8080-exec-10] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 10:38:23 [http-nio-8080-exec-4] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 10:38:31 [http-nio-8080-exec-9] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
+2026-06-23 10:38:31 [http-nio-8080-exec-9] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostęp: Full authentication is required to access this resource
+2026-06-23 10:38:31 [http-nio-8080-exec-9] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostęp: Full authentication is required to access this resource
+2026-06-23 10:38:40 [http-nio-8080-exec-3] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 10:39:11 [http-nio-8080-exec-6] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 10:40:58 [http-nio-8080-exec-1] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 10:41:03 [http-nio-8080-exec-10] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 10:41:09 [http-nio-8080-exec-9] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 10:54:06 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 18 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(18)-CONNECTED(18)-DISCONNECT(13)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 198], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 48], sockJsScheduler[pool size = 2, active threads = 1, queued tasks = 0, completed tasks = 1]
+2026-06-23 11:02:50 [http-nio-8080-exec-8] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
+2026-06-23 11:03:07 [http-nio-8080-exec-1] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
+2026-06-23 11:03:21 [http-nio-8080-exec-7] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
+2026-06-23 11:03:25 [http-nio-8080-exec-9] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
+2026-06-23 11:03:36 [http-nio-8080-exec-7] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 11:04:06 [http-nio-8080-exec-5] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 11:04:41 [http-nio-8080-exec-5] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 11:07:19 [http-nio-8080-exec-1] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 11:09:14 [http-nio-8080-exec-7] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 11:42:22 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20m21s951ms215µs700ns).
+2026-06-23 11:43:46 [http-nio-8080-exec-2] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
+2026-06-23 11:43:47 [http-nio-8080-exec-3] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
+2026-06-23 11:44:20 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 23 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(23)-CONNECTED(23)-DISCONNECT(19)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 264], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 65], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 0, completed tasks = 2]
+2026-06-23 11:57:01 [http-nio-8080-exec-7] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 12:00:44 [http-nio-8080-exec-7] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 12:01:37 [http-nio-8080-exec-6] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 12:01:53 [http-nio-8080-exec-3] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 12:03:27 [http-nio-8080-exec-8] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: wykladowca@gmail.com
+2026-06-23 12:07:59 [http-nio-8080-exec-10] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
+2026-06-23 12:08:03 [http-nio-8080-exec-8] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
+2026-06-23 12:08:03 [http-nio-8080-exec-4] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
+2026-06-23 12:08:03 [http-nio-8080-exec-8] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostęp: Full authentication is required to access this resource
+2026-06-23 12:08:03 [http-nio-8080-exec-8] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostęp: Full authentication is required to access this resource
+2026-06-23 12:08:12 [http-nio-8080-exec-5] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
+2026-06-23 12:10:26 [http-nio-8080-exec-3] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: ziemowit@gmail.com
+2026-06-23 12:11:30 [http-nio-8080-exec-4] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: ziemowit@gmail.com
+2026-06-23 12:12:48 [http-nio-8080-exec-9] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: a@gmail.com
+2026-06-23 12:13:51 [http-nio-8080-exec-8] INFO  p.e.p.z.config.WebSocketConfig - WebSocket zautoryzowany dla użytkownika: a@gmail.com
+2026-06-23 12:14:20 [MessageBroker-2] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 33 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(33)-CONNECTED(33)-DISCONNECT(23)], stompBrokerRelay[null], inboundChannel[pool size = 8, active threads = 0, queued tasks = 0, completed tasks = 366], outboundChannel[pool size = 3, active threads = 0, queued tasks = 0, completed tasks = 89], sockJsScheduler[pool size = 4, active threads = 1, queued tasks = 0, completed tasks = 3]
+2026-06-23 15:20:24 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h30s863ms83µs900ns).
+2026-06-23 22:10:06 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6h49m48s933ms933µs500ns).
+2026-06-23 22:10:43 [http-nio-8080-exec-4] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
+2026-06-23 22:10:48 [http-nio-8080-exec-8] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
+2026-06-23 22:10:48 [http-nio-8080-exec-9] ERROR p.e.p.z.security.JwtTokenProvider - Wygasły token JWT
+2026-06-23 22:10:48 [http-nio-8080-exec-9] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostęp: Full authentication is required to access this resource
+2026-06-23 22:10:48 [http-nio-8080-exec-9] ERROR p.e.p.z.s.JwtAuthenticationEntryPoint - Nieautoryzowany dostęp: Full authentication is required to access this resource
